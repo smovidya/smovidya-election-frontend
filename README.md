@@ -123,7 +123,7 @@ When opening a pull request (PR), please follow these guidelines:
 2. **PR Description**:
    - Provide a detailed description of what was changed, why it was changed, and any additional context for reviewers.
 
-3. **Linking Issues**:
+3. **Linking Issuess**:
    - If the PR addresses an open issue, mention it in the PR description. Example:
      ```text
      Closes #123
@@ -143,4 +143,3 @@ When opening a pull request (PR), please follow these guidelines:
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Shadcn Documentation](https://ui.shadcn.com)
 - [GitHub Pull Request Guidelines](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)
-
