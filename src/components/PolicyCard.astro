@@ -1,5 +1,8 @@
 ---
+import api from "@/lib/api";
+
 const policies = Object.values(import.meta.glob("../contents/policies/*.md", { eager: true }));
+const response = await api.get("/weather");
 ---
 
 <div class="max-w-6xl mx-auto p-6 space-y-8 bg-white rounded-lg shadow-lg">
@@ -26,6 +29,9 @@ const policies = Object.values(import.meta.glob("../contents/policies/*.md", { e
           </div>
         ))
       }
+    </div>
+    <div class="mt-6 text-center">
+      temp from api data: {response.data.temperature}
     </div>
   </section>
 </div>
