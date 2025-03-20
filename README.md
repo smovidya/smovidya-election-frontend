@@ -4,7 +4,6 @@
 
 **Astro** is a modern front-end framework designed to build fast websites with minimal JavaScript. It focuses on content-first development and provides the flexibility to use various frameworks like React, Vue, Svelte, and more while ensuring your site is lightweight and optimized for performance. Astro generates static HTML by default, which helps in improving SEO (Search Engine Optimization) and page load speeds.
 
-
 ---
 
 ## 🎨 What is Tailwind CSS?
@@ -16,7 +15,6 @@
 ## 🪄 What is Shadcn?
 
 **Shadcn** is a component library that works well with Tailwind CSS. It provides a set of pre-built, customizable UI components that can be used in your projects to make design and development faster and easier. The components are designed with accessibility and responsiveness in mind, ensuring they work well across different devices and screen sizes. By integrating Shadcn, you can quickly enhance the user interface without needing to build everything from scratch.
-
 
 ---
 
@@ -63,7 +61,16 @@ bun dev
 
 You can now view the project at `localhost:4321` in your browser.
 
-### 5. Build the project
+### 5. Format and Lint the Code
+
+Before committing your changes, ensure your code is properly formatted and linted:
+
+```sh
+bun run format
+bun run lint
+```
+
+### 6. Build the project
 
 To build the production version of your site:
 
@@ -71,7 +78,7 @@ To build the production version of your site:
 bun build
 ```
 
-### 6. Preview the build
+### 7. Preview the build
 
 Before deploying, preview your build locally:
 
