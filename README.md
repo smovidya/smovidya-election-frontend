@@ -123,7 +123,7 @@ When opening a pull request (PR), please follow these guidelines:
 2. **PR Description**:
    - Provide a detailed description of what was changed, why it was changed, and any additional context for reviewers.
 
-3. **Linking Issuess**:
+3. **Linking Issues**:
    - If the PR addresses an open issue, mention it in the PR description. Example:
      ```text
      Closes #123
