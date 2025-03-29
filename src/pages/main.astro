@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { Image } from "astro:assets";
+import Logo from "@/pics/main/SmoElectionLogo.webp"
+import Box from "@/pics/main/BoxIcon.webp"
+import Line from "@/pics/main/line.webp"
+import Par1 from "@/pics/main/image_1.webp"
+
+const Party = [
+    {num:"1", name: "พรรคเพื่อแมวเลีย", routing:"", pic:""},
+    {num:"2", name: "พรรคปลาทูทอด", routing:"", pic:""},
+    {num:"3", name: "พรรครณรงค์หนังไก่", routing:"", pic:""}
+]
+---
+
+<Layout>
+    <div class="flex flex-col w-full h-auto bg-[#FBC02B]">
+        <div class="pt-20 pb-10 px-10">
+            <Image src={Logo}  alt={"logo"} class="w-60 mb-8"/>
+            <div class="mb-10">
+                <p class="font-bold font-noto text-md">เลือกตั้งคณะกรรมการบริหารสโมสรนิสิต</p>
+                <p class="font-light font-noto text-md mb-1">คณะวิทยาศาตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
+                <p class="font-light font-noto text-xs text-[#4B4B48]">ประจำปีการศึกษา 2568</p>
+            </div>
+            <div class="w-full h-35 rounded-2xl shadow-lg bg-white"></div>
+        </div>
+        <div class="flex flex-col w-full h-100 rounded-t-4xl bg-white items-center pt-15 px-10">
+            <p class="font-bold font-noto text-sm text-[#3D3C30] mb-5">ลงคะแนนเสียง</p>
+            <button class="content-center bg-[#FBC02B] px-15 py-5 rounded-2xl shadow-lg">
+                <!-- <Image src={Box} alt={"box"} class="w-10"/> -->
+                <p class="font-bold font-museo text-md text-[#3D3C30] ">VOTE NOW</p>
+            </button>
+            <Image src={Line} alt={"line"} class="w-full mt-10"/>
+            <div class="flex flex-col items-center w-full h-auto">
+                <div class="px-5 mt-10">
+                    <p class="font-bold font-noto text-sm text-[#3D3C30]">รายชื่อและนโยบายผู้ลงสมัครเลือกตั้ง</p>
+                    <p class="font-light font-noto text-xs text-[#3D3C30]">คลิ๊กเพื่อดูนโยบาย</p>
+                </div>
+                <button class="flex flex-row w-full justify-between gap-2 m-10">
+                    <div class="w-auto flex flex-col items-center px-5 py-7 bg-[#B0E5F5]">
+                        <p class="font-museo font-bold text-xs text-[#0068BD]">หมายเลข</p>
+                        <p class="font-museo text-6xl text-[#0068BD]">1</p>
+                    </div>
+                    <div class="flex flex-row items-center px-2 gap-2 bg-[#F3F3F3]">
+                        <p>พรรคเพื่อแมวเลีย</p>
+                        <Image src={Par1} alt={"party1"} class="w-30 object-contain"/>
+                    </div>
+                    <div></div>
+                </button>
+            </div>
+            <Image src={Line} alt={"line"} class="w-full mb-20"/>
+        </div>
+    </div>
+</Layout>
