@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import Par1 from "@/pics/main/image_1.webp";
+import Par2 from "@/pics/main/image_2.webp";
+import Par3 from "@/pics/main/image_3.webp";
+---
+
+<div class="w-full max-w-4xl mx-auto py-8 relative overflow-hidden">
+    <div class="relative w-full h-32 px-5">
+      <Image src={Par1} alt="Slide 1" class="slide absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0" />
+      <Image src={Par2} alt="Slide 1" class="slide absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0" />
+      <Image src={Par3} alt="Slide 3" class="slide absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 opacity-0" />
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      let index = 0;
+      const slides = document.querySelectorAll('.slide');
+      const totalSlides = slides.length;
+  
+      function showSlide() {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('opacity-100', i === index);
+          slide.classList.toggle('opacity-0', i !== index);
+        });
+        index = (index + 1) % totalSlides;
+      }
+  
+      setInterval(showSlide, 4000);
+      showSlide();  // Initial call to display the first slide
+    });
+  </script>
+  
