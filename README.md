@@ -1,5 +1,6 @@
 # Project Overview
-
+kfeakgl;vd,
+lc,l;s,cls,c
 ## 🚀 What is Astro?
 
 **Astro** is a modern front-end framework designed to build fast websites with minimal JavaScript. It focuses on content-first development and provides the flexibility to use various frameworks like React, Vue, Svelte, and more while ensuring your site is lightweight and optimized for performance. Astro generates static HTML by default, which helps in improving SEO (Search Engine Optimization) and page load speeds.
