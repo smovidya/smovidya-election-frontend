@@ -124,6 +124,9 @@
 
 	--color-red: #ff292c;
 	--color-yel: #ffd829;
+	--color-pink: #f94c9b;
+	--color-brown: #422517;
+	--color-olive: #8e7e09;
 }
 
 @layer base {
