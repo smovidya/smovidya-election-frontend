@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import BigBox from "@/pics/finish/BigBox.webp";
+import Logo from "@/pics/finish/ElectionLogo.webp";
+import download from "@/pics/finish/download.webp";
+import link from "@/pics/finish/link.webp";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <div class="flex flex-col w-full h-screen place-items-center place-content-center">
+        <Image src={Logo} alt={"logo"} class="w-40 my-2"/>
+        <div class="font-noto place-items-center mb-7 font-medium text-pink text-lg text-center whitespace-pre-line">
+            <h>
+                คุณได้ลงคะแนนเสียง
+                เสร็จสิ้นเป็นที่เรียบร้อยแล้ว
+            </h>
+        </div>
+        <Image src={BigBox} alt={"bigbox"} class="w-25 my-2"/>
+        <div class="h-auto font-noto font-medium text-black text-md text-center whitespace-pre-line my-5">
+            <h2 class="text-center whitespace-pre-line"> ขอขอบคุณที่ร่วมเป็นส่วนหนึ่งในการลงคะแนนเสียง
+                เลือกตั้งคณะกรรมการบริหารสโมสรนิสิต
+                คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย 
+                ประจำปีการศึกษา 2568
+            </h2>
+        </div>
+        <div class="flex flex-row gap-3 my-3">
+            <a href="" download class="bg-yellow px-5 py-3 rounded-2xl shadow-lg inline-flex items-center gap-2">
+                <Image src={download} alt={"download"} class="w-5"/>
+                <h1 class="font-normal font-noto text-sm text-brown ">บันทึกภาพ</h1>
+            </a>
+            <a class="bg-yellow px-10 py-3 rounded-2xl shadow-lg inline-flex items-center gap-2">
+                <Image src={link} alt={"download"} class="w-5"/>
+                <h1 class="font-normal font-noto text-sm text-brown ">แชร์</h1>
+            </a>
+        </div>
+        <div class="font-noto font-normal text-olive text-sm text-center whitespace-pre-line my-3">
+            <h3 class="text-center whitespace-pre-line leading-loose">สามารถติดตามผลการเลือกตั้งได้ที่
+                Instagram : smovidya_official และ 
+                Facebook : สโมสรนิสิตคณะวิทยาศาสตร์ 
+                จุฬาลงกรณ์มหาวิทยาลัย - CU Smovidya
+            </h3>
+        </div>
+    </div>
+</Layout>
