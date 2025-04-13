@@ -1,0 +1,111 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Arrow from "@/pics/arrow.webp";
+import Image1 from "@/pics/image1.webp";
+import Carousel from "./Carousel.astro";
+
+const title = "นายเชอร์ล็อก โฮลมส์";
+const position = "ผู้ลงสมัครตำแหน่งนายกสโมสรนิสิต";
+const subtitle = "พรรคเพื่อแมวเลีย";
+const department = "ภาควิชาวิทยาการหอนตอนเช้า ชั้นปีที่ 2";
+const image = Image1;
+const qualifications = "นอนเก่งหายง่วง";
+const experience = [
+  "คว่ำพรมสามเครือในห้อง รอบแรกทั่วหัว",
+  "รอบสองตีลังกาหมวดเลยพัดแกน",
+];
+const policies = [
+  {
+    title: "นโยบายที่ 1 อาหารแมวฟรี วันละ 3 มื้อ 🍖",
+    details: [
+      "แจกอาหารแมวคุณภาพพรีเมียมให้ทุกแมวในโรงเรียน",
+      "มีเมนูให้เลือกถึงสิบกว่าๆ เมนูสดแสนอร่อย และอาหารเม็ดเกรดดี",
+      "เสริมวิตามินบำรุงจมูกให้แมวปุกปุยทั่วถ้วน",
+    ],
+  },
+  {
+    title: "นโยบายที่ 2 ที่นอนแมวต้องพรีเมียม! 🛏️",
+    details: [
+      "เปลี่ยนพื้นที่ห้องแมวเป็นโซน 'ที่นอนแมวสุดหรู'",
+      "พร้อมผ้านุ่มพิเศษ",
+      "ที่นอนฟูกเต็มตัว ซักง่ายของแท้",
+      "แมวทุกตัวต้องได้นอนแบบไพรเวต",
+      "เปลี่ยนฟูกแมวทุก 24 ชั่วโมง พร้อมอบฆ่าเชื้อทุกสัปดาห์",
+    ],
+  },
+  {
+    title: "นโยบายที่ 3 แมวต้องสวยตลอด! 🧼",
+    details: [
+      "ทุกแมวมีสิทธิ์เข้าคลินิกอาบได้ตัดขน ไม่มีค่าใช้จ่าย!",
+      "อาบด้วยสบู่หอมสูตรพิเศษ",
+      "จัดตั้ง 'ห้องแมวสปา' ดูแลขนเป็นพิเศษ",
+      "แจกฟรีประแป้งพรางกลิ่นอับ",
+    ],
+  },
+];
+---
+
+<Layout>
+  <!-- ส่วนบน -->
+  <div class="w-full bg-yellow pt-20 pb-24">
+    <div class="w-full max-w-screen-md mx-auto px-8 sm:px-12">
+      <a href="/friend-code">
+        <Image src={Arrow} alt="arrow" class="w-2 mb-5 ml-0 cursor-pointer hover:opacity-80 transition" />
+      </a>
+      <div class="flex flex-row items-center w-full gap-x-8">
+        <div class="flex flex-col">
+          <h1 class="font-bold font-noto text-lg leading-tight">{title}</h1>
+          <h2 class="font-bold font-noto text-lg mb-1">{subtitle}</h2>
+          <h4 class="font-light font-noto text-darkgray text-xs">{position}</h4>
+          <h4 class="font-light font-noto text-darkgray text-xs mb-2">{department}</h4>
+        </div>
+        <div class="relative w-32 mt-0 mb-8">
+          <Image src={image} alt="cat" class="w-full rounded-tr-[2.5rem]" style="object-position: top;" />
+          <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-yellow/20 rounded-tr-[2.5rem]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- นโยบาย -->
+  <div class="w-full max-w-screen-md mx-auto bg-white rounded-t-[2.5rem] pt-8 pb-8 -mt-24 px-8 sm:px-12">
+    <h2 class="font-bold font-noto text-lg mb-4">นโยบายผู้สมัคร</h2>
+    <div class="font-noto text-sm text-black leading-relaxed space-y-4">
+      {policies.map((policy) => (
+        <div>
+          <p class="text-gray">{policy.title}</p>
+          <ul class="list-disc text-gray pl-6">
+            {policy.details.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- ประวัติ -->
+    <div class="border-t border-black w-full my-6"></div>
+    <h2 class="font-bold font-noto text-base leading-tight mb-4">
+      คุณสมบัติและประวัติการทำงาน<br />ของผู้สมัคร
+    </h2>
+    <div class="space-y-3 text-sm font-noto">
+      <div>
+        <span class="font-bold text-gray">คุณสมบัติ</span><br />
+        <span class="text-gray">{qualifications}</span>
+      </div>
+      <div>
+        <span class="font-bold text-gray">ประวัติการทำงาน</span><br />
+        <ul class="list-disc text-gray pl-6">
+          {experience.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="border-t border-black w-full my-6"></div>
+    <div class="mt-6">
+      <Carousel />
+    </div>
+  </div>
+</Layout>
