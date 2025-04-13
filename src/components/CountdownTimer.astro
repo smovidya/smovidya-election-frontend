@@ -1,5 +1,5 @@
 <div id="countdown" class="font-museo text-center text-black">
-    <h2 class="font-noto text-sm font-light mb-1 text-lgray">จะเริ่มต้นใน...</h2>
+    <h2 id="countdown-label" class="font-noto text-sm font-light mb-1 text-lgray">จะเริ่มต้นใน...</h2>
     <div class="flex justify-center items-center space-x-4">
         <div id="days-container" class="text-center">
             <div id="days" class="text-5xl font-light font-museo w-[60px]">00</div>
@@ -23,97 +23,96 @@
   </div>
   
   <script>
-    // Set your target date here (7 days from now by default)
-    const targetDate = new Date("2025-04-10T22:08:40");
+    const initialTargetDate = new Date("2025-04-13T21:25:10");
+    let phase = 1;
+    let targetDate = initialTargetDate;
   
     function updateCountdown() {
       const currentDate = new Date();
-      const difference = targetDate.getTime() - currentDate.getTime();
-      
-      // Calculate time components
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
+      let difference = targetDate.getTime() - currentDate.getTime();
+  
       const voteNowBtn = document.getElementById("vote-now-btn");
-      const countdownContainer = document.querySelector(".place-content-center.w-full.h-35");
-
-      if (voteNowBtn) {
-        if (difference > 0) {
-            // Disable button with gray appearance and text
-            voteNowBtn.classList.add("pointer-events-none", "bg-gray-400", "text-gray");
-            voteNowBtn.classList.remove("cursor-pointer");
-        } else {
-            // Enable button with normal appearance
-            voteNowBtn.classList.remove("pointer-events-none", "opacity-50", "bg-gray-400", "text-gray");
-            voteNowBtn.classList.add("cursor-pointer", "bg-yellow");
-
-            if (countdownContainer) {
-                countdownContainer.remove();  // This will remove the container from the DOM
-            }
-        }
-    }
-      
-      // Get all elements
+  
       const daysContainer = document.getElementById('days-container');
       const hoursContainer = document.getElementById('hours-container');
       const minutesContainer = document.getElementById('minutes-container');
       const secondsContainer = document.getElementById('seconds-container');
-      const colon1 = document.getElementById('colon1');
       const colon2 = document.getElementById('colon2');
       const colon3 = document.getElementById('colon3');
       const daysElement = document.getElementById('days');
       const hoursElement = document.getElementById('hours');
       const minutesElement = document.getElementById('minutes');
       const secondsElement = document.getElementById('seconds');
-      
-      // Update the countdown display
-      if (days > 0) {
-        // Show only days when we have 1 or more days left
-        daysElement!.textContent = days.toString().padStart(2, '0');
-        daysContainer!.classList.remove('hidden');
-        hoursContainer!.classList.add('hidden');
-        minutesContainer!.classList.add('hidden');
-        secondsContainer!.classList.add('hidden');
-        colon2!.classList.add('hidden');
-        colon3!.classList.add('hidden');
-      } else {
-        // Show hours, minutes, seconds when less than 1 day remains
-        daysContainer!.classList.add('hidden');
-        hoursContainer!.classList.remove('hidden');
-        minutesContainer!.classList.remove('hidden');
-        secondsContainer!.classList.remove('hidden');
-        colon2!.classList.remove('hidden');
-        colon3!.classList.remove('hidden');
-        
-        hoursElement!.textContent = hours.toString().padStart(2, '0');
-        minutesElement!.textContent = minutes.toString().padStart(2, '0');
-        secondsElement!.textContent = seconds.toString().padStart(2, '0');
-      }
-      
-      // If countdown is over
-      if (difference < 0) {
-        daysContainer!.classList.add('hidden');
-        hoursContainer!.classList.add('hidden');
-        minutesContainer!.classList.add('hidden');
-        secondsContainer!.classList.add('hidden');
-        colon1!.classList.add('hidden');
-        colon2!.classList.add('hidden');
-        colon3!.classList.add('hidden');
-        
-        const countdownElement = document.getElementById('countdown');
-        if (countdownElement) {
-          countdownElement.innerHTML = '<div class="text-3xl font-bold">Countdown Complete!</div>';
+  
+      if (difference <= 0) {
+        if (phase === 1) {
+          // First countdown complete: move to phase 2 (voting time)
+          phase = 2;
+          targetDate = new Date("2025-04-13T21:25:30");
+          const countdownLabel = document.getElementById("countdown-label");
+          if (countdownLabel) {
+          countdownLabel.textContent = "เหลือเวลาเลืิอกอีก...";
+          }
+          
+          // Enable the vote button
+          if (voteNowBtn) {
+            voteNowBtn.classList.remove("pointer-events-none", "opacity-50", "bg-gray-400", "text-gray");
+            voteNowBtn.classList.add("cursor-pointer", "bg-yellow");
+          }
+  
+          return; // Skip rendering this frame; next tick will update countdown again
+        } else {
+          // Second countdown complete — now you can either:
+          // - clear the interval
+          // - or restart again
+          const countdownElement = document.getElementById('countdown');
+          if (countdownElement) {
+          countdownElement.innerHTML = '<div class="text-5xl font-light font-museo">หมดเวลาเลือกตั้ง</div>';
+          }
+          // Delete voteNowBtn if it exists
+          if (voteNowBtn) {
+          voteNowBtn.classList.add("pointer-events-none", "opacity-50", "bg-gray-400", "text-gray");
+          voteNowBtn.classList.remove("cursor-pointer", "bg-yellow");
+          }
+          clearInterval(timerInterval);
+          return;
         }
-        clearInterval(timerInterval);
+      }
+  
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  
+      // Countdown display logic
+      if (days > 0) {
+      if (daysElement) daysElement.textContent = days.toString().padStart(2, '0');
+      if (daysContainer) daysContainer.classList.remove('hidden');
+      if (hoursContainer) hoursContainer.classList.add('hidden');
+      if (minutesContainer) minutesContainer.classList.add('hidden');
+      if (secondsContainer) secondsContainer.classList.add('hidden');
+      if (colon2) colon2.classList.add('hidden');
+      if (colon3) colon3.classList.add('hidden');
+      } else {
+      if (daysContainer) daysContainer.classList.add('hidden');
+      if (hoursContainer) hoursContainer.classList.remove('hidden');
+      if (minutesContainer) minutesContainer.classList.remove('hidden');
+      if (secondsContainer) secondsContainer.classList.remove('hidden');
+      if (colon2) colon2.classList.remove('hidden');
+      if (colon3) colon3.classList.remove('hidden');
+      if (hoursElement) hoursElement.textContent = hours.toString().padStart(2, '0');
+      if (minutesElement) minutesElement.textContent = minutes.toString().padStart(2, '0');
+      if (secondsElement) secondsElement.textContent = seconds.toString().padStart(2, '0');
+      }
+  
+      // In Phase 1, disable the button
+      if (voteNowBtn && phase === 1) {
+        voteNowBtn.classList.add("pointer-events-none", "bg-gray-400", "text-gray");
+        voteNowBtn.classList.remove("cursor-pointer");
       }
     }
-
-    
-    // Initial call to set up the display
+  
+    // Run initially
     updateCountdown();
-    
-    // Update every second
     const timerInterval = setInterval(updateCountdown, 1000);
   </script>

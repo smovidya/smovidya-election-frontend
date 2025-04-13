@@ -11,15 +11,32 @@ import Image from "astro/components/Image.astro";
       <!-- Slides -->
       <div class="relative flex w-full h-32 ">
         <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-500">
-          <Image src={Par1} alt="Slide 1" class="w-full h-full object-contain" />
+          <div class="relative w-full h-full">
+            <Image src={Par1} alt="Slide 1" class="w-full h-full object-contain" />
+            <div class="absolute bottom-2 right-2 font-museo text-darkgray text-xs px-2 py-1 rounded">
+              โครงการโดยสโมสรนิสิตคณะวิทยาศาสตร์
+            </div>
+          </div>
         </div>
+        
         <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-500">
-          <Image src={Par2} alt="Slide 2" class="w-full h-full object-contain" />
+          <div class="relative w-full h-full">
+            <Image src={Par2} alt="Slide 2" class="w-full h-full object-contain" />
+            <div class="absolute bottom-2 right-2 font-museo text-darkgray text-xs px-2 py-1 rounded">
+              โครงการโดยสโมสรนิสิตคณะวิทยาศาสตร์
+            </div>
+          </div>
         </div>
+        
         <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-500">
-          <Image src={Par3} alt="Slide 3" class="w-full h-full object-contain" />
+          <div class="relative w-full h-full">
+            <Image src={Par3} alt="Slide 3" class="w-full h-full object-contain" />
+            <div class="absolute bottom-2 right-2 font-museo text-darkgray text-xs px-2 py-1 rounded">
+              โครงการโดยสโมสรนิสิตคณะวิทยาศาสตร์
+            </div>
+          </div>
         </div>
-      </div>
+        
     
       <!-- Navigation Buttons -->
       <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray text-4xl font-thin px-3 py-1">‹</button>

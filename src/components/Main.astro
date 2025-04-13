@@ -11,16 +11,18 @@ import Carousel from "./Carousel.astro";
 import CountdownTimer from "./CountdownTimer.astro";
 
 const Party = [
-	{ num: "1", name: "พรรคเพื่อแมวเลีย", routing: "", pic: Par1, bg: "bg-blue", txt: "text-darkblue" },
-	{ num: "2", name: "พรรคปลาทูทอด", routing: "", pic: Par2, bg: "bg-red", txt: "text-white" },
-	{ num: "3", name: "พรรครณรงค์หนังไก่", routing: "", pic: Par3, bg: "bg-yel", txt: "text-dgray" },
+	{ num: "1", role: "นายกสโมสร", routing: "", pic: Par1 },
+	{ num: "1", role: "อุปนายกคนที่ 1", routing: "", pic: Par2 },
+	{ num: "1", role: "อุปนายกคนที่ 2", routing: "", pic: Par3 },
+	{ num: "1", role: "เลขานุการ", routing: "", pic: Par3 },
+	{ num: "1", role: "ประธานฝ่าย\nนิสิตสัมพันธ์", routing: "", pic: Par3 },
 ];
 ---
 
 <Layout>
     <div class="flex flex-col w-full h-auto bg-yellow">
         <div class="pt-10 mb-10 px-10">
-            <Image src={Logo}  alt={"logo"} class="w-60 mb-8"/>
+            <Image src={Logo}  alt={"logo"} class="w-50 mb-8"/>
             <div class="mb-10">
                 <h1 class="font-bold font-noto text-md">เลือกตั้งคณะกรรมการบริหารสโมสรนิสิต</h1>
                 <h2 class="font-light font-noto text-md mb-1">คณะวิทยาศาตร์ จุฬาลงกรณ์มหาวิทยาลัย</h2>
@@ -30,34 +32,38 @@ const Party = [
                 <CountdownTimer/>
             </div>
         </div>
-        <div class="flex flex-col w-full h-100 rounded-t-4xl bg-white items-center pt-13 px-10">
+        <div class="flex flex-col w-full h-auto rounded-t-4xl bg-white items-center pt-13 px-10">
             <h class="font-semibold font-noto text-md text-dgray mb-3">ลงคะแนนเสียง</h>
-            <a href="" id="vote-now-btn" class=" px-12 py-3  rounded-2xl shadow-lg inline-flex items-center gap-2 pointer-events-none opacity-50">
+            <a href="" id="vote-now-btn" class=" px-12 py-3 rounded-2xl shadow-lg inline-flex items-center gap-2 pointer-events-none opacity-50">
                 <Image src={Box} alt={"box"} class="w-7"/>
                 <h1 class="font-semibold font-museo text-sm text-black ">VOTE NOW</h1>
             </a>
             <Image src={Line} alt={"line"} class="w-full mt-10"/>
+            <Image src={Line} alt={"line"} class="w-full my-10"/>
+            <div class="w-full h-50 flex flex-col text-center shadow-lg rounded-xl">
+                <h1 class="font-semibold font-noto text-md">นโยบายพรรคเพื่อแมวเลีย</h1>
+            </div>
             <div class="flex flex-col items-center w-full h-auto px-3">
                 <div class="flex flex-col items-center mt-10 mb-5">
                     <h3 class="font-bold font-noto text-md text-dgray mb-1">รายชื่อและนโยบายผู้ลงสมัครเลือกตั้ง</h3>
                     <h4 class="font-light font-noto text-sm text-dgray">คลิกเพื่อดูนโยบาย</h4>
                 </div>
-                <div class="w-full h-100 overflow-y-visible overflow-x-hidden ">
+                <div class="w-full h-auto">
                     {Party.map((item) => (
-                        <a class="flex flex-row w-full justify-between gap-2 my-5 h-25">
-                            <div class={`w-20 h-full flex flex-col justify-center align-center text-center ${item.bg}`}>
-                                <h4 class={`font-museo font-bold text-xs ${item.txt}`} >หมายเลข</h4>
-                                <p class={`font-museo text-5xl ${item.txt}`}>{item.num}</p>
+                        <a class="flex flex-row w-full justify-between gap-1 my-5 h-25">
+                            <div class="w-20 h-full flex flex-col justify-center align-center text-center ${item.bg} bg-blue">
+                                <h4 class="font-museo font-semibold text-[0.625rem]/2 text-darkblue">หมายเลข</h4>
+                                <p class="font-museo text-4xl font-medium text-darkblue">{item.num}</p>
                             </div>
-                            <div class="flex flex-row w-80 justify-between items-center gap-2 bg-[#F3F3F3] relative">
-                                <h2 class="font-noto font-normal text-lg text-lgray pl-3 whitespace-nowrap z-10">{item.name}</h2>
-                                <Image src={item.pic} alt={"party1"} class="h-25 object-contain flex-shrink-0 absolute -right-26"/>
+                            <div class="w-80 flex flex-row items-center justify-between bg-[#F3F3F3]">
+                                <h2 class="font-noto font-normal text-lg text-lgray pl-3 whitespace-pre-line">{item.role}</h2>
+                                <Image src={item.pic} alt={"party1"} class="h-25 w-25 object-contain ml-auto"/>
                             </div>
                         </a>
                     ))}
                 </div>
-            </div
-            <Image src={Line} alt={"line"} class="w-full mb-10"/>
+            </div>
+            <Image src={Line} alt={"line"} class="w-full my-10"/>
             <div class="flex flex-col w-full">
                 <div class="font-noto font-bold text-dgray text-md place-items-center mb-5">
                     <h3>สโมสรนิสิตคณะวิทยาศาสตร์</h3>
