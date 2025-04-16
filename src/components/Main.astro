@@ -1,26 +1,37 @@
 ---
 import { Image } from "astro:assets";
+import VoterCount from "@/components/VoterCount.astro";
+import * as Pol1 from "@/content/policies/policy-1.md";
+import { Content as Policies } from "@/content/policies/policy-1.md";
 import Box from "@/pics/main/BoxIcon.webp";
+import President from "@/pics/main/Par1/01_นายก.webp";
+import VicePresident1 from "@/pics/main/Par1/02_อุป1.webp";
+import VicePresident2 from "@/pics/main/Par1/03_อุป2.webp";
+import StudentRelations from "@/pics/main/Par1/04_ฝ่ายนิสิตสัมพันธ์.webp";
+import Sport from "@/pics/main/Par1/05_ฝ่ายกีฬา.webp";
+import Academic from "@/pics/main/Par1/06_ฝ่ายวิชาการ.webp";
+import PublicService from "@/pics/main/Par1/07_ฝ่ายพัฒน์.webp";
+import Treasurer from "@/pics/main/Par1/08_เหรัญญิก.webp";
 import Logo from "@/pics/main/SmoElectionLogo.webp";
-import Par1 from "@/pics/main/image_1.webp";
-import Par2 from "@/pics/main/image_2.webp";
-import Par3 from "@/pics/main/image_3.webp";
 import Line from "@/pics/main/line.webp";
 import Layout from "../layouts/Layout.astro";
 import Carousel from "./Carousel.astro";
 import CountdownTimer from "./CountdownTimer.astro";
 
 const Party = [
-	{ num: "1", role: "นายกสโมสร", routing: "", pic: Par1 },
-	{ num: "1", role: "อุปนายกคนที่ 1", routing: "", pic: Par2 },
-	{ num: "1", role: "อุปนายกคนที่ 2", routing: "", pic: Par3 },
-	{ num: "1", role: "เลขานุการ", routing: "", pic: Par3 },
-	{ num: "1", role: "ประธานฝ่าย\nนิสิตสัมพันธ์", routing: "", pic: Par3 },
+	{ num: "1", role: "นายกสโมสร", routing: "", pic: President },
+	{ num: "1", role: "อุปนายกคนที่ 1", routing: "", pic: VicePresident1 },
+	{ num: "1", role: "อุปนายกคนที่ 2", routing: "", pic: VicePresident2 },
+	{ num: "1", role: "ประธานฝ่าย\nนิสิตสัมพันธ์", routing: "", pic: StudentRelations },
+	{ num: "1", role: "ประธานฝ่ายกีฬา", routing: "", pic: Sport },
+	{ num: "1", role: "ประธานฝ่ายวิชาการ", routing: "", pic: Academic },
+	{ num: "1", role: "ประธานฝ่าย\nพัฒนาสังคม\nและบำเพ็ญประโยชน์", routing: "", pic: PublicService },
+	{ num: "1", role: "เหรัญญิก", routing: "", pic: Treasurer },
 ];
 ---
 
 <Layout>
-    <div class="flex flex-col w-full h-auto bg-yellow">
+    <div class="flex flex-col w-full h-auto bg-yellow select-none">
         <div class="pt-10 mb-10 px-10">
             <Image src={Logo}  alt={"logo"} class="w-50 mb-8"/>
             <div class="mb-10">
@@ -38,10 +49,15 @@ const Party = [
                 <Image src={Box} alt={"box"} class="w-7"/>
                 <h1 class="font-semibold font-museo text-sm text-black ">VOTE NOW</h1>
             </a>
-            <Image src={Line} alt={"line"} class="w-full mt-10"/>
+            <Image src={Line} alt={"line"} class="w-full my-10 pointer-events-none"/>
+            <div>
+                <VoterCount/>
+            </div>
             <Image src={Line} alt={"line"} class="w-full my-10"/>
-            <div class="w-full h-50 flex flex-col text-center shadow-lg rounded-xl">
-                <h1 class="font-semibold font-noto text-md">นโยบายพรรคเพื่อแมวเลีย</h1>
+            <div class="w-full h-auto flex flex-col shadow-lg rounded-xl px-4">
+                <article class="prose p-4 mx-auto max-w-2xl">
+                    <h1>{Pol1.frontmatter.title}</h1>
+                </article>
             </div>
             <div class="flex flex-col items-center w-full h-auto px-3">
                 <div class="flex flex-col items-center mt-10 mb-5">
@@ -50,14 +66,14 @@ const Party = [
                 </div>
                 <div class="w-full h-auto">
                     {Party.map((item) => (
-                        <a class="flex flex-row w-full justify-between gap-1 my-5 h-25">
+                        <a href={item.routing} class="flex flex-row w-full justify-between gap-1 my-5 h-25">
                             <div class="w-20 h-full flex flex-col justify-center align-center text-center ${item.bg} bg-blue">
                                 <h4 class="font-museo font-semibold text-[0.625rem]/2 text-darkblue">หมายเลข</h4>
-                                <p class="font-museo text-4xl font-medium text-darkblue">{item.num}</p>
+                                <p class="font-museo text-5xl font-normal text-darkblue">{item.num}</p>
                             </div>
                             <div class="w-80 flex flex-row items-center justify-between bg-[#F3F3F3]">
                                 <h2 class="font-noto font-normal text-lg text-lgray pl-3 whitespace-pre-line">{item.role}</h2>
-                                <Image src={item.pic} alt={"party1"} class="h-25 w-25 object-contain ml-auto"/>
+                                <Image src={item.pic} alt={"party1"} class="h-full w-auto object-contain ml-auto pointer-events-none"/>
                             </div>
                         </a>
                     ))}
