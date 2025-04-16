@@ -4,19 +4,42 @@ import VoterCount from "@/components/VoterCount.astro";
 import Box from "@/pics/main/BoxIcon.webp";
 import Logo from "@/pics/main/SmoElectionLogo.webp";
 import Line from "@/pics/main/line.webp";
-import President from "@/pics/main/par1/01_นายก.webp";
-import VicePresident1 from "@/pics/main/par1/02_อุป1.webp";
-import VicePresident2 from "@/pics/main/par1/03_อุป2.webp";
-import StudentRelations from "@/pics/main/par1/04_ฝ่ายนิสิตสัมพันธ์.webp";
-import Sport from "@/pics/main/par1/05_ฝ่ายกีฬา.webp";
-import Academic from "@/pics/main/par1/06_ฝ่ายวิชาการ.webp";
-import PublicService from "@/pics/main/par1/07_ฝ่ายพัฒน์.webp";
-import Treasurer from "@/pics/main/par1/08_เหรัญญิก.webp";
+import President from "@/pics/main/par1/01_president.webp";
+import VicePresident1 from "@/pics/main/par1/02_vicepresident1.webp";
+import VicePresident2 from "@/pics/main/par1/03_vicepresident2.webp";
+import StudentRelations from "@/pics/main/par1/04_studentrelations.webp";
+import Sport from "@/pics/main/par1/05_sport.webp";
+import Academic from "@/pics/main/par1/06_academic.webp";
+import PublicService from "@/pics/main/par1/07_publicservice.webp";
+import Treasurer from "@/pics/main/par1/08_treasurer.webp";
 import Layout from "../layouts/Layout.astro";
 import Carousel from "./Carousel.astro";
 import CountdownTimer from "./CountdownTimer.astro";
 
-const Policies = [{}];
+const Policies = [
+    {name: "นโยบายพรรคเพื่อแมวเลีย",
+        policies: [
+        {
+		title: "นโยบายที่ 1 อาหารแมวฟรี วันละ 3 มื้อ 🍖",
+		details: [
+			"แจกอาหารแมวคุณภาพพรีเมียมให้ทุกแมวในโรงเรียน",
+			"มีเมนูให้เลือกถึงสิบกว่าๆ เมนูสดแสนอร่อย และอาหารเม็ดเกรดดี",
+			"เสริมวิตามินบำรุงจมูกให้แมวปุกปุยทั่วถ้วน",
+		],
+	},
+	{
+		title: "นโยบายที่ 2 ที่นอนแมวต้องพรีเมียม! 🛏️",
+		details: [
+			"เปลี่ยนพื้นที่ห้องแมวเป็นโซน 'ที่นอนแมวสุดหรู'",
+			"พร้อมผ้านุ่มพิเศษ",
+			"ที่นอนฟูกเต็มตัว ซักง่ายของแท้",
+			"แมวทุกตัวต้องได้นอนแบบไพรเวต",
+			"เปลี่ยนฟูกแมวทุก 24 ชั่วโมง พร้อมอบฆ่าเชื้อทุกสัปดาห์",
+		],
+	},
+        ]
+    }
+];
 
 const Party = [
 	{ num: "1", role: "นายกสโมสร", routing: "", pic: President },
@@ -54,8 +77,20 @@ const Party = [
                 <VoterCount/>
             </div>
             <Image src={Line} alt={"line"} class="w-full my-10"/>
-            <div class="w-full h-auto flex flex-col shadow-lg rounded-xl px-4">
-
+            <div class="w-full h-auto flex flex-col shadow-lg rounded-xl py-7 px-5 font-noto mb-5">
+                {Policies.map((party) => (
+                    <h1 class="text-md text-center font-semibold text-black mb-2">{party.name}</h1>
+                    <div class="text-xs text-lgray font-light leading-relaxed">
+                        {party.policies.map((pol) => (
+                        <p>{pol.title}</p>
+                        <ul class="list-disc text-gray pl-5">
+                            {pol.details.map((item) => (
+                                <li class="marker:text-[0.625rem]">{item}</li>
+                            ))}
+                        </ul>
+                    ))}
+                    </div>
+                ))}
             </div>
             <div class="flex flex-col items-center w-full h-auto px-3">
                 <div class="flex flex-col items-center mt-5 mb-5">
