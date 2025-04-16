@@ -1,0 +1,110 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BN1 from "@/pics/main/project/1_1.webp";
+import BN3 from "@/pics/main/project/1_3.webp";
+import FD1 from "@/pics/main/project/2_1.webp";
+import FD2 from "@/pics/main/project/2_2.webp";
+import WC1 from "@/pics/main/project/3_1.webp";
+import WC2 from "@/pics/main/project/3_2.webp";
+import TC1 from "@/pics/main/project/4_1.webp";
+import TC2 from "@/pics/main/project/4_2.webp";
+import FG1 from "@/pics/main/project/5_1.webp";
+import FG2 from "@/pics/main/project/5_2.webp";
+import OPH from "@/pics/main/project/6.webp";
+import ARTSCI from "@/pics/main/project/7.webp";
+import LOOK1 from "@/pics/main/project/8_1.webp";
+import LOOK2 from "@/pics/main/project/8_2.webp";
+import CUKMITL from "@/pics/main/project/9.webp";
+import VLVU1 from "@/pics/main/project/10_1.webp";
+import VLVU2 from "@/pics/main/project/10_2.webp";
+import Image from "astro/components/Image.astro";
+import BN2 from "src/pics/main/project/1_2.webp";
+
+const Project = [
+	{ name: "โครงการปัจฉิมนิเทศ คณะวิทยาศาสตร์", pics: [BN1, BN2, BN3] },
+	{ name: "โครงการแรกพบจุฬาฯ", pics: [FD1, FD2] },
+	{ name: "โครงการเทศการต้อนรับนิสิตใหม่ คณะวิทยาศาสตร์", pics: [WC1, WC2] },
+	{ name: "โครงการไหว้ครูและปฐมนิเทศ", pics: [TC1, TC2] },
+	{ name: "โครงการกีฬาเพื่อนใหม่", pics: [FG1, FG2] },
+	{ name: "โครงการเปิดโลกคณะวิทยาศาสตร์", pics: [OPH] },
+	{ name: "โครงการเทศกาลเเห่งศาสตร์ศิลป์ คณะวิทยาศาสตร์", pics: [ARTSCI] },
+	{ name: "โครงการการกุศลภายใต้ชื่อ ลูกหมู 3 ตัว", pics: [LOOK1, LOOK2] },
+	{ name: "โครงการกีฬาสานสัมพันธ์ คณะวิทยาศาสตร์ จุฬาฯ - ลาดกระบัง", pics: [CUKMITL] },
+	{ name: "โครงการถนนคนเดินเชื่อมสัมพันธ์วิศวฯ - วิทยาฯ ", pics: [VLVU1, VLVU2] },
+];
+---
+<Layout>
+    <!-- Astro Component -->
+    <div class="relative w-full max-w-lg mx-auto overflow-hidden">
+      <!-- Slides -->
+      <div class="relative flex w-full h-32 ">
+          {Project.map((item) => (
+            item.pics.map((pic) => (
+              <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-500 px-10">
+                <div class="relative w-full h-full">
+                  <Image src={pic} alt="" class="w-full h-auto object-contain absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                  <div class="absolute bottom-0 right-0 font-noto text-white text-xs px-2 py-1 rounded bg-black/50">
+                {item.name}
+                </div>
+            </div>
+          </div>
+            ))
+          ))}
+    
+      <!-- Navigation Buttons -->
+      <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray text-4xl font-thin py-1">‹</button>
+      <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray text-4xl font-thin py-1">›</button>
+    </div>
+    
+    <!-- TypeScript-Safe JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".carousel-slide");
+        const totalSlides = slides.length;
+        const nextBtn = document.querySelector("#nextBtn");
+        const prevBtn = document.querySelector("#prevBtn");
+        let autoSlideInterval: ReturnType<typeof setInterval>;
+    
+        function showSlide(index: number) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle("opacity-100", i === index);
+            slide.classList.toggle("opacity-0", i !== index);
+          });
+        }
+    
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          showSlide(currentIndex);
+        }
+    
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          showSlide(currentIndex);
+        }
+    
+        function startAutoSlide() {
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+    
+        function stopAutoSlide() {
+          clearInterval(autoSlideInterval);
+        }
+    
+        nextBtn?.addEventListener("click", () => {
+          nextSlide();
+          stopAutoSlide();
+          startAutoSlide();
+        });
+    
+        prevBtn?.addEventListener("click", () => {
+          prevSlide();
+          stopAutoSlide();
+          startAutoSlide();
+        });
+    
+        showSlide(currentIndex);
+        startAutoSlide();
+      });
+    </script>    
+</Layout>

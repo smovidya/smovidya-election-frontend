@@ -114,7 +114,16 @@
 @theme {
 	--font-museo: "MuseoModerno", "serif";
 	--font-noto: "Noto Sans Thai Looped", "sans-serif";
-	--color-yellow: rgba(251, 192, 43, 1);
+
+	--color-yellow: #fbc02b;
+	--color-lgray: #4b4b48;
+	--color-dgray: #3d3c30;
+
+	--color-blue: #b0e5f5;
+	--color-darkblue: #0068bd;
+
+	--color-red: #ff292c;
+	--color-yel: #ffd829;
 }
 
 @layer base {

@@ -1,0 +1,21 @@
+---
+---
+<div class="flex flex-col items-centerd">
+    <h class="font-noto text-dgray text-center text-md mb-2">จำนวนผู้ใช้สิทธ์เลือกตั้งทั้งหมด</h>
+    <h1 id="counter" class="font-museo text-center text-dgray text-4xl mb-2">Loading...</h1>
+    <h class="font-noto text-dgray text-center text-sm">จากผู้มีสิทธิ์เลือกตั้ง 10,000,000 คน</h>
+</div>
+
+<script type="module">
+  const p = document.getElementById('counter');
+
+  fetch('https://api-smovidya-election.bunyawatapp37204.workers.dev/api/voter-count')
+    .then(res => res.json())
+    .then(data => {
+      p.textContent = `${data.count} คน`;
+    })
+    .catch(err => {
+      console.error(err);
+      p.textContent = 'Error loading count';
+    });
+</script>
