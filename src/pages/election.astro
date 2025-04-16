@@ -1,0 +1,186 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+---
+
+<Layout title="เลือกตั้งคณะกรรมการบริหารสโมสรนิสิต">
+  <main class="mx-auto bg-white shadow-md">
+    <!-- Header Section -->
+    <div class="flex w-full h-[184px] justify-between items-center bg-yellow">
+      <Image
+        src="/images/logo.webp"
+        alt="Logo"
+        class="mx-auto"
+        height="100"
+        width={215.14}
+      />
+      <Image
+        src="/images/home.webp"
+        alt="Logo"
+        class="mx-auto"
+        height="100"
+        width={24}
+      />
+    </div>
+
+    <div class="p-8 font-noto">
+      <!-- Main Header -->
+      <h1 class="text-base font-bold text-center mt-11 mb-3">
+        เลือกตั้งคณะกรรมการบริหารสโมสร
+      </h1>
+      <h2 class="text-xs text-gray-500 text-center mb-9">
+        คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย<br />ประจำปีการศึกษา 2568
+      </h2>
+
+      <!-- President Section -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-3">ตำแหน่งนายกสโมสร</h3>
+        <p class="text-gray-600 mb-6">กรุณาเลือก รับรอง ไม่รับรอง หรืองดออกเสียง</p>
+        <div class="border rounded-lg p-6 mb-4 bg-gray-50">
+          <p class="font-bold">หมายเลข</p>
+          <p>พรธคเพ็อเนมาเลีย</p>
+          <p>นายเบอร์ล็อก โฮลมส์</p>
+          <p>ภาควิชาวิทยาการทอนตอนเช้า</p>
+          <p>ชั้นปีที่ 2</p>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="president" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">รับรอง</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="president" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">ไม่รับรอง</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="president" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">งดออกเสียง</span>
+          </label>
+        </div>
+      </section>
+
+      <hr class="my-8 border-gray-200" />
+
+      <!-- Vice President Sections -->
+      <!-- Vice President 1 -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-3">อุปนายกคนที่ 1</h3>
+        <p class="text-gray-600 mb-6">กรุณาเลือก รับรอง ไม่รับรอง หรืองดออกเสียง</p>
+        <div class="border rounded-lg p-6 mb-4 bg-gray-50">
+          <p class="font-bold">หมายเลข</p>
+          <p>พรธคเพ็อเนมาเลีย</p>
+          <p>นายเบอร์ล็อก โฮลมส์</p>
+          <p>ภาควิชาวิทยาการทอนตอนเช้า</p>
+          <p>ชั้นปีที่ 2</p>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="vice_president_1" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">รับรอง</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="vice_president_1" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">ไม่รับรอง</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="vice_president_1" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">งดออกเสียง</span>
+          </label>
+        </div>
+      </section>
+
+      <hr class="my-8 border-gray-200" />
+
+      <!-- Vice President 2 -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-3">อุปนายกคนที่ 2</h3>
+        <p class="text-gray-600 mb-6">กรุณาเลือก รับรอง ไม่รับรอง หรืองดออกเสียง</p>
+        <div class="border rounded-lg p-6 mb-4 bg-gray-50">
+          <p class="font-bold">หมายเลข</p>
+          <p>พรธคเพ็อเนมาเลีย</p>
+          <p>นายเบอร์ล็อก โฮลมส์</p>
+          <p>ภาควิชาวิทยาการทอนตอนเช้า</p>
+          <p>ชั้นปีที่ 2</p>
+        </div>
+        <div class="space-y-3">
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="vice_president_2" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">รับรอง</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="vice_president_2" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">ไม่รับรอง</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="vice_president_2" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">งดออกเสียง</span>
+          </label>
+        </div>
+      </section>
+
+      <hr class="my-8 border-gray-200" />
+
+      <!-- Remaining Sections (Repeat pattern with unique names) -->
+      <!-- Secretary -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-3">เลขานุการ</h3>
+        <p class="text-gray-600 mb-6">กรุณาเลือก หรืองดออกเสียง</p>
+        <div class="space-y-6">
+          <div class="border rounded-lg p-6 bg-gray-50">
+            <p class="font-bold">หมายเลข 2</p>
+            <p>นายจอหัน วัดสัน</p>
+            <p>ภาควิชาวิทยาการทอนตอนเช้า</p>
+            <p>ชั้นปีที่ 2</p>
+          </div>
+        </div>
+        <div class="mt-6 space-y-3">
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="secretary" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">เบอร์ 2 | นายจอหัน วัดสัน</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="secretary" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">งดออกเสียง</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Repeat similar structure for: -->
+      <!-- ประธานฝ่ายนิสิตสัมพันธ์ -->
+      <!-- ประธานฝ่ายศิลปะและวัฒนธรรม -->
+      <!-- ประธานฝ่ายวิชาการ -->
+      <!-- ประธานฝ่ายกีฬา -->
+      <!-- ประธานฝ่ายพัฒนาสังคมและบำเพ็ญประโยชน์ -->
+      <!-- เหรัญญิก -->
+
+      <!-- Example for one more section -->
+      <hr class="my-8 border-gray-200" />
+
+      <!-- Student Relations Chair -->
+      <section class="mb-12">
+        <h3 class="text-xl font-semibold mb-3">ประธานฝ่ายนิสิตสัมพันธ์</h3>
+        <p class="text-gray-600 mb-6">กรุณาเลือก หรืองดออกเสียง</p>
+        <div class="space-y-6">
+          <div class="border rounded-lg p-6 bg-gray-50">
+            <p class="font-bold">หมายเลข 3</p>
+            <p>นางสาวสมหญิง ใจดี</p>
+            <p>ภาควิชาวิทยาการคอมพิวเตอร์</p>
+            <p>ชั้นปีที่ 3</p>
+          </div>
+        </div>
+        <div class="mt-6 space-y-3">
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="student_relations" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">เบอร์ 3 | นางสาวสมหญิง ใจดี</span>
+          </label>
+          <label class="flex items-center space-x-3">
+            <input type="radio" name="student_relations" class="form-radio h-5 w-5 text-blue-600" />
+            <span class="text-gray-700">งดออกเสียง</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Continue this pattern for remaining positions -->
+    </div>
+  </main>
+</Layout>
