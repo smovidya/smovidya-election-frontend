@@ -50,7 +50,7 @@ const { title, subtitle, position, department, image, policies, qualifications, 
       {
         policies.map((policy: { title: unknown; details: any[]; }) => (
           <div>
-            <p class="text-gray">{policy.title}</p>
+            <p class="text-gray font-semibold">{policy.title}</p>
             <ul class="list-disc text-gray pl-6">
               {policy.details.map((item: unknown) => (
                 <li>{item}</li>
@@ -62,7 +62,7 @@ const { title, subtitle, position, department, image, policies, qualifications, 
     </div>
 
     <div class="border-t border-black w-full my-6"></div>
-    <h2 class="font-bold font-noto text-base leading-tight mb-4">
+    <h2 class="font-bold font-noto text-base text-gray leading-tight mb-4">
       ประวัติการทำงานของผู้สมัคร
     </h2>
     <div class="space-y-3 text-sm font-noto">
