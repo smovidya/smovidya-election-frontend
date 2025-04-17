@@ -32,23 +32,22 @@ const Project = [
 	{ name: "โครงการถนนคนเดินเชื่อมสัมพันธ์วิศวฯ - วิทยาฯ ", pics: [VLVU1, VLVU2] },
 ];
 ---
-
-<div class="relative w-full max-w-4xl mx-auto overflow-hidden group">
-    <!-- 3:2 Aspect Ratio Container -->
+<div class="relative w-full max-w-xl mx-auto overflow-hidden group">
+    <!-- 3:2 Container with reduced size -->
     <div class="relative w-full bg-gray-100 rounded-lg shadow-lg" style="padding-top: 66.6667%">
         {Project.map((item) => (
             item.pics.map((pic) => (
                 <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
-                    <div class="absolute inset-0 w-full h-full">
+                    <div class="absolute inset-0 w-full h-full p-2">  <!-- Added padding -->
                         <Image 
                             src={pic} 
                             alt={item.name} 
                             class="w-full h-full object-cover rounded-lg"
-                            widths={[600, 800, 1000, 1200]}
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                            widths={[400, 600, 800]}
+                            sizes="(max-width: 640px) 90vw, 600px"
                             loading="lazy"
                         />
-                        <div class="absolute bottom-2 right-2 font-noto text-white text-sm px-3 py-1.5 rounded bg-black/50 backdrop-blur-sm">
+                        <div class="absolute bottom-3 right-3 font-noto text-white text-xs px-2 py-1 rounded bg-black/60 backdrop-blur-sm">
                             {item.name}
                         </div>
                     </div>
@@ -57,17 +56,17 @@ const Project = [
         ))}
     </div>
 
-    <!-- Navigation Controls -->
+    <!-- More prominent arrows -->
     <button 
         id="prevBtn" 
-        class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:scale-125"
+        class="absolute left-2 top-1/2 -translate-y-1/2 text-white text-3xl bg-black/30 hover:bg-black/50 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300 hover:scale-125"
         aria-label="Previous slide"
     >
         ‹
     </button>
     <button 
         id="nextBtn" 
-        class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:scale-125"
+        class="absolute right-2 top-1/2 -translate-y-1/2 text-white text-3xl bg-black/30 hover:bg-black/50 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-300 hover:scale-125"
         aria-label="Next slide"
     >
         ›
@@ -101,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 7000);
+        autoSlideInterval = setInterval(nextSlide, 5000);
     }
 
     function stopAutoSlide() {
@@ -131,9 +130,28 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(currentIndex);
     startAutoSlide();
 
-    // Pause on hover
+    // Touch controls
+    let touchStartX = 0;
     const container = document.querySelector(".group");
+    
+    container?.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    container?.addEventListener("touchend", (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+        }
+    });
+
+    // Pause interactions
     container?.addEventListener("mouseenter", stopAutoSlide);
     container?.addEventListener("mouseleave", startAutoSlide);
+    container?.addEventListener("touchstart", stopAutoSlide);
+    container?.addEventListener("touchend", () => setTimeout(startAutoSlide, 5000));
 });
 </script>
