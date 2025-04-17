@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import Arrow from "@/pics/arrow.webp";
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 const { title, subtitle, position, department, image, policies, qualifications, experience } = frontmatter;
@@ -10,8 +9,8 @@ const { title, subtitle, position, department, image, policies, qualifications, 
 <Layout>
   <div class="w-full bg-yellow pt-20 pb-24">
     <div class="w-full max-w-screen-md mx-auto px-8 sm:px-12">
-        <a href="/เส้นทางกลับ">
-            <Image src={Arrow} alt="arrow" class="w-2 mb-4 ml-0 cursor-pointer hover:opacity-80 transition" />
+        <a href="/">
+            <img src= "/pics/arrow.webp" alt="arrow" class="w-2 mb-4 ml-0 cursor-pointer hover:opacity-80 transition" />
           </a>          
       <div class="flex flex-row items-center w-full gap-x-8">
         <div class="flex flex-col">
