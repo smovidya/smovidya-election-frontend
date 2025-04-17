@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <!-- Yellow Background -->
+  <div class="bg-yellow min-h-screen flex items-center justify-center">
+    <!-- White Content Box -->
+    <div class="bg-white w-full max-w-lg rounded-lg shadow-lg p-6">
+      <slot />
+    </div>
+  </div>
+</Layout>

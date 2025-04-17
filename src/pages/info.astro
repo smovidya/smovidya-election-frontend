@@ -1,0 +1,48 @@
+---
+import { voters } from "../data/voters";
+// filepath: c:\Users\ACER\Desktop\Pob-everything\Working\smovidya-election-frontend\src\pages\info.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Voter {
+	id: string;
+	firstName: string;
+	lastName: string;
+	email?: string;
+	phone?: string;
+	faculty?: string;
+	major?: string;
+}
+
+let currentStudentId: string | null = Astro.url.searchParams.get("studentId");
+let currentUser: Voter | undefined;
+let errorMessage: string | undefined;
+
+if (currentStudentId) {
+	currentUser = voters[currentStudentId];
+	if (!currentUser) {
+		errorMessage = `ไม่พบข้อมูลรหัสนิสิต: ${currentStudentId}`;
+	}
+} else {
+	errorMessage = "ไม่พบข้อมูลรหัสนิสิต";
+}
+---
+
+<BaseLayout>
+  <div class="bg-white rounded-lg shadow-lg p-6">
+    {currentUser ? (
+      <div>
+        <div class="grid grid-cols-2 gap-y-2 mb-4">
+          <p class="font-semibold text-black">รหัสนิสิต</p>
+          <p class="text-black">{currentUser.id}</p>
+          <p class="font-semibold text-black">ชื่อ</p>
+          <p class="text-black">{currentUser.firstName}</p>
+          <p class="font-semibold text-black">นามสกุล</p>
+          <p class="text-black">{currentUser.lastName}</p>
+        </div>
+        <hr class="border-t border-gray-300 my-4" />
+      </div>
+    ) : (
+      <p class="text-red-500 text-center mb-4">{errorMessage}</p>
+    )}
+  </div>
+</BaseLayout>

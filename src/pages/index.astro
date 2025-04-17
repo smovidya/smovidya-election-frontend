@@ -1,11 +1,66 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import { voters } from "../data/voters";
+// filepath: c:\Users\ACER\Desktop\Pob-everything\Working\smovidya-election-frontend\src\pages\info.astro
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Voter {
+	id: string;
+	firstName: string;
+	lastName: string;
+	email?: string;
+	phone?: string;
+	faculty?: string;
+	major?: string;
+}
+
+let currentStudentId: string | null = Astro.url.searchParams.get("studentId");
+let currentUser: Voter | undefined;
+let errorMessage: string | undefined;
+
+if (currentStudentId) {
+	currentUser = voters[currentStudentId];
+	if (!currentUser) {
+		errorMessage = `ไม่พบข้อมูลรหัสนิสิต: ${currentStudentId}`;
+	}
+} else {
+	errorMessage = "ไม่พบข้อมูลรหัสนิสิต";
+}
 ---
 
-<Layout>
-  <div class="text-9xl">Hello </div>
-  <script>
-    const a = "hello"
-    console.log("Hello world",a);
-  </script>
-</Layout>
+<BaseLayout>
+  <div class="bg-white rounded-lg shadow-lg p-6">
+    {currentUser ? (
+      <div>
+        <div class="grid grid-cols-2 gap-y-2 mb-4">
+          <p class="font-semibold text-black">รหัสนิสิต</p>
+          <p class="text-black">{currentUser.id}</p>
+          <p class="font-semibold text-black">ชื่อ</p>
+          <p class="text-black">{currentUser.firstName}</p>
+          <p class="font-semibold text-black">นามสกุล</p>
+          <p class="text-black">{currentUser.lastName}</p>
+        </div>
+        <hr class="border-t border-gray-300 my-4" />
+      </div>
+    ) : (
+      <p class="text-red-500 text-center mb-4">{errorMessage}</p>
+    )}
+
+    <h2 class="text-xl font-semibold mb-4 text-center text-black">ข้อกำหนดและเงื่อนไข</h2>
+    <ol class="list-decimal ml-6 text-black mb-6">
+      <li class="mb-2">ขณะนี้ท่านกำลังใช้งานเว็บไซต์และมองหน้าจอบนอุปกรณ์เดียว โดยมีผู้ใช้งานได้ถูกนับเพียงบุคคลเดียวเท่านั้น</li>
+      <li class="mb-2">ห้ามยอมหรืออ้างอิงจากใครในการลงคะแนนเสียงเลือกตั้ง</li>
+      <li class="mb-2">ข้อมูลส่วนบุคคลของท่านถูกต้องทั้งหมด</li>
+      <li class="mb-2">ท่านมีเวลาทั้งสิ้น 30 นาที ในการเข้าสู่ระบบเพื่อทำการลงคะแนนเสียงจนเสร็จสิ้น</li>
+      <li class="mb-2">ท่านยอมรับคะแนนเสียงที่โหวตผ่านเว็บไซต์เลือกตั้ง คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย ให้ถือเป็นที่สิ้นสุด</li>
+    </ol>
+
+    <div class="flex justify-center">
+      <button
+        id="acceptButton"
+        class="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-2 px-6 rounded"
+      >
+        ยอมรับข้อกำหนดและเงื่อนไข
+      </button>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import type { Position } from "../types";
+import CandidateCard from "./CandidateCard.astro";
+
+interface Props {
+	position: Position;
+	index: number;
+}
+
+const { position, index } = Astro.props as Props;
+---
+
+<section>
+  <h2>{position.title}</h2>
+
+  {position.candidates.map((candidate) => (
+    <CandidateCard candidate={candidate} name={`position${index}`} />
+  ))}
+
+  <label>
+    <input type="radio" name={`position${index}`} value="none" required />
+    งดออกเสียง
+  </label>
+</section>

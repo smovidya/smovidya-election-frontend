@@ -1,0 +1,21 @@
+---
+import type { Candidate } from "../types";
+
+interface Props {
+	candidate: Candidate;
+	name: string;
+}
+
+const { candidate, name } = Astro.props as Props;
+---
+
+<div class="candidate-card">
+  <img src={candidate.image} alt={candidate.name} width="80" />
+  <p>{candidate.name}</p>
+  <input
+    type="radio"
+    name={name}
+    value={candidate.id}
+    required
+  />
+</div>

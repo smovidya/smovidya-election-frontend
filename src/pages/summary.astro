@@ -1,0 +1,21 @@
+---
+const url = new URL(Astro.request.url);
+const selections = url.searchParams;
+---
+
+<html lang="th">
+  <head>
+    <title>สรุปผลการเลือกตั้ง</title>
+  </head>
+  <body>
+    <h1>สรุปผลการเลือกตั้ง</h1>
+    <ul>
+      <li>ตำแหน่งนายกสโมสร: หมายเลข {selections.get('position0') ?? 'งดออกเสียง'}</li>
+      <li>ตำแหน่งเลขาบุญกร: หมายเลข {selections.get('position1') ?? 'งดออกเสียง'}</li>
+    </ul>
+    <form action="/">
+      <button type="submit">ย้อนกลับ</button>
+    </form>
+    <button onclick="alert('บันทึกผลเรียบร้อย!')">ยืนยัน</button>
+  </body>
+</html>
