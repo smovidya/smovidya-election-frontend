@@ -1,5 +1,4 @@
 ---
-import Layout from "@/layouts/Layout.astro";
 import BN1 from "@/pics/main/project/1_1.webp";
 import BN3 from "@/pics/main/project/1_3.webp";
 import FD1 from "@/pics/main/project/2_1.webp";
@@ -21,90 +20,120 @@ import Image from "astro/components/Image.astro";
 import BN2 from "src/pics/main/project/1_2.webp";
 
 const Project = [
-	{ name: "โครงการปัจฉิมนิเทศ คณะวิทยาศาสตร์", pics: [BN1, BN2, BN3] },
-	{ name: "โครงการแรกพบจุฬาฯ", pics: [FD1, FD2] },
-	{ name: "โครงการเทศการต้อนรับนิสิตใหม่ คณะวิทยาศาสตร์", pics: [WC1, WC2] },
-	{ name: "โครงการไหว้ครูและปฐมนิเทศ", pics: [TC1, TC2] },
-	{ name: "โครงการกีฬาเพื่อนใหม่", pics: [FG1, FG2] },
-	{ name: "โครงการเปิดโลกคณะวิทยาศาสตร์", pics: [OPH] },
-	{ name: "โครงการเทศกาลเเห่งศาสตร์ศิลป์ คณะวิทยาศาสตร์", pics: [ARTSCI] },
-	{ name: "โครงการการกุศลภายใต้ชื่อ ลูกหมู 3 ตัว", pics: [LOOK1, LOOK2] },
-	{ name: "โครงการกีฬาสานสัมพันธ์ คณะวิทยาศาสตร์ จุฬาฯ - ลาดกระบัง", pics: [CUKMITL] },
-	{ name: "โครงการถนนคนเดินเชื่อมสัมพันธ์วิศวฯ - วิทยาฯ ", pics: [VLVU1, VLVU2] },
+    { name: "โครงการปัจฉิมนิเทศ คณะวิทยาศาสตร์", pics: [BN1, BN2, BN3] },
+    { name: "โครงการแรกพบจุฬาฯ", pics: [FD1, FD2] },
+    { name: "โครงการเทศการต้อนรับนิสิตใหม่ คณะวิทยาศาสตร์", pics: [WC1, WC2] },
+    { name: "โครงการไหว้ครูและปฐมนิเทศ", pics: [TC1, TC2] },
+    { name: "โครงการกีฬาเพื่อนใหม่", pics: [FG1, FG2] },
+    { name: "โครงการเปิดโลกคณะวิทยาศาสตร์", pics: [OPH] },
+    { name: "โครงการเทศกาลเเห่งศาสตร์ศิลป์ คณะวิทยาศาสตร์", pics: [ARTSCI] },
+    { name: "โครงการการกุศลภายใต้ชื่อ ลูกหมู 3 ตัว", pics: [LOOK1, LOOK2] },
+    { name: "โครงการกีฬาสานสัมพันธ์ คณะวิทยาศาสตร์ จุฬาฯ - ลาดกระบัง", pics: [CUKMITL] },
+    { name: "โครงการถนนคนเดินเชื่อมสัมพันธ์วิศวฯ - วิทยาฯ ", pics: [VLVU1, VLVU2] },
 ];
 ---
-<Layout>
-    <!-- Astro Component -->
-    <div class="relative w-full max-w-lg mx-auto overflow-hidden">
-      <!-- Slides -->
-      <div class="relative flex w-full h-32 ">
-          {Project.map((item) => (
+
+<div class="relative w-full max-w-4xl mx-auto overflow-hidden group">
+    <!-- 3:2 Aspect Ratio Container -->
+    <div class="relative w-full bg-gray-100 rounded-lg shadow-lg" style="padding-top: 66.6667%">
+        {Project.map((item) => (
             item.pics.map((pic) => (
-              <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-500 px-10">
-                <div class="relative w-full h-full">
-                  <Image src={pic} alt="" class="w-full h-auto object-contain absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-                  <div class="absolute bottom-0 right-0 font-noto text-white text-xs px-2 py-1 rounded bg-black/50">
-                {item.name}
+                <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                    <div class="absolute inset-0 w-full h-full">
+                        <Image 
+                            src={pic} 
+                            alt={item.name} 
+                            class="w-full h-full object-cover rounded-lg"
+                            widths={[600, 800, 1000, 1200]}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+                            loading="lazy"
+                        />
+                        <div class="absolute bottom-2 right-2 font-noto text-white text-sm px-3 py-1.5 rounded bg-black/50 backdrop-blur-sm">
+                            {item.name}
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </div>
             ))
-          ))}
-    
-      <!-- Navigation Buttons -->
-      <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray text-4xl font-thin py-1">‹</button>
-      <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray text-4xl font-thin py-1">›</button>
+        ))}
     </div>
-    
-    <!-- TypeScript-Safe JavaScript -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        let currentIndex = 0;
-        const slides = document.querySelectorAll(".carousel-slide");
-        const totalSlides = slides.length;
-        const nextBtn = document.querySelector("#nextBtn");
-        const prevBtn = document.querySelector("#prevBtn");
-        let autoSlideInterval: ReturnType<typeof setInterval>;
-    
-        function showSlide(index: number) {
-          slides.forEach((slide, i) => {
+
+    <!-- Navigation Controls -->
+    <button 
+        id="prevBtn" 
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:scale-125"
+        aria-label="Previous slide"
+    >
+        ‹
+    </button>
+    <button 
+        id="nextBtn" 
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:scale-125"
+        aria-label="Next slide"
+    >
+        ›
+    </button>
+</div>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded", function () {
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".carousel-slide");
+    const totalSlides = slides.length;
+    const nextBtn = document.querySelector("#nextBtn");
+    const prevBtn = document.querySelector("#prevBtn");
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
             slide.classList.toggle("opacity-100", i === index);
             slide.classList.toggle("opacity-0", i !== index);
-          });
-        }
-    
-        function nextSlide() {
-          currentIndex = (currentIndex + 1) % totalSlides;
-          showSlide(currentIndex);
-        }
-    
-        function prevSlide() {
-          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-          showSlide(currentIndex);
-        }
-    
-        function startAutoSlide() {
-          autoSlideInterval = setInterval(nextSlide, 5000);
-        }
-    
-        function stopAutoSlide() {
-          clearInterval(autoSlideInterval);
-        }
-    
-        nextBtn?.addEventListener("click", () => {
-          nextSlide();
-          stopAutoSlide();
-          startAutoSlide();
         });
-    
-        prevBtn?.addEventListener("click", () => {
-          prevSlide();
-          stopAutoSlide();
-          startAutoSlide();
-        });
-    
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
         showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        showSlide(currentIndex);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 7000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Button controls
+    nextBtn?.addEventListener("click", () => {
+        nextSlide();
+        stopAutoSlide();
         startAutoSlide();
-      });
-    </script>    
-</Layout>
+    });
+
+    prevBtn?.addEventListener("click", () => {
+        prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
+    // Keyboard controls
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") nextSlide();
+        if (e.key === "ArrowLeft") prevSlide();
+    });
+
+    // Initialize
+    showSlide(currentIndex);
+    startAutoSlide();
+
+    // Pause on hover
+    const container = document.querySelector(".group");
+    container?.addEventListener("mouseenter", stopAutoSlide);
+    container?.addEventListener("mouseleave", startAutoSlide);
+});
+</script>
