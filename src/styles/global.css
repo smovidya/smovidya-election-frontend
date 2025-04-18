@@ -125,6 +125,8 @@
 
 	--color-red: #ff292c;
 	--color-yel: #ffd829;
+
+	--color-sciserve: #a57fc4;
 }
 
 @layer base {

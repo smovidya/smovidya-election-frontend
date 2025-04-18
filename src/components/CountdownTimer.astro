@@ -23,7 +23,7 @@
   </div>
   
   <script>
-    const initialTargetDate = new Date("2025-04-23T21:25:10");
+    const initialTargetDate = new Date("2025-04-23T08:00:00");
     let phase = 1;
     let targetDate = initialTargetDate;
   
@@ -48,7 +48,7 @@
         if (phase === 1) {
           // First countdown complete: move to phase 2 (voting time)
           phase = 2;
-          targetDate = new Date("2025-04-23T21:25:30");
+          targetDate = new Date("2025-04-23T18:00:00");
           const countdownLabel = document.getElementById("countdown-label");
           if (countdownLabel) {
           countdownLabel.textContent = "เหลือเวลาเลือกอีก...";
