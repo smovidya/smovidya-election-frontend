@@ -18,7 +18,7 @@ import CountdownTimer from "./CountdownTimer.astro";
 
 const Policies = [
 	{
-		name: "นโยบายพรรคเพื่อแมวเลีย",
+		name: "นโยบายพรรค Sci-Served",
 		policies: [
 			{
 				title: "นโยบายที่ 1 อาหารแมวฟรี วันละ 3 มื้อ 🍖",
@@ -43,17 +43,17 @@ const Policies = [
 ];
 
 const Party = [
-	{ num: "1", role: "นายกสโมสร", routing: "", pic: President },
+	{ num: "1", role: "นายกสโมสรนิสิต", routing: "", pic: President },
 	{ num: "1", role: "อุปนายกคนที่ 1", routing: "", pic: VicePresident1 },
 	{ num: "1", role: "อุปนายกคนที่ 2", routing: "", pic: VicePresident2 },
 	{ num: "1", role: "ประธานฝ่าย\nนิสิตสัมพันธ์", routing: "", pic: StudentRelations },
 	{ num: "1", role: "ประธานฝ่ายกีฬา", routing: "", pic: Sport },
 	{ num: "1", role: "ประธานฝ่ายวิชาการ", routing: "", pic: Academic },
-	{ num: "1", role: "ประธานฝ่ายพัฒน์", routing: "", pic: PublicService },
+	{ num: "1", role: "ประธานฝ่าย\nพัฒนาสังคม\nและบําเพ็ญประโยชน์", routing: "", pic: PublicService },
 	{ num: "1", role: "เหรัญญิก", routing: "", pic: Treasurer },
 ];
----
 
+---
 <Layout>
     <div class="flex flex-col w-full h-auto bg-yellow select-none">
         <div class="pt-10 mb-10 px-10">
@@ -101,9 +101,9 @@ const Party = [
                 <div class="w-full h-auto">
                     {Party.map((item) => (
                         <a href={item.routing} class="flex flex-row w-full justify-between gap-1 my-5 h-25">
-                            <div class="w-20 h-full flex flex-col justify-center align-center text-center ${item.bg} bg-blue">
-                                <h4 class="font-museo font-semibold text-[0.625rem]/2 text-darkblue">หมายเลข</h4>
-                                <p class="font-museo text-5xl font-normal text-darkblue">{item.num}</p>
+                            <div class="w-20 h-full flex flex-col justify-center align-center text-center ${item.bg} bg-sciserve">
+                                <h4 class="font-museo font-semibold text-[0.625rem]/2 text-white">หมายเลข</h4>
+                                <p class="font-museo text-5xl font-normal text-white">{item.num}</p>
                             </div>
                             <div class="w-80 flex flex-row items-center justify-between bg-[#F3F3F3]">
                                 <h2 class="font-noto font-normal text-lg text-lgray pl-3 whitespace-pre-line">{item.role}</h2>
@@ -121,7 +121,9 @@ const Party = [
                     <h3 class="text-center">สโมสรนิสิตคณะวิทยาศาสตร์</h3>
                     <h3 class="text-center">ปีการศึกษา 2567</h3>
                 </div>
-                <Carousel/>
+                <div class="w-full px-5">
+                    <Carousel/>
+                </div>
                 <div class="w-full h-10"></div>
             </div>
         </div>
