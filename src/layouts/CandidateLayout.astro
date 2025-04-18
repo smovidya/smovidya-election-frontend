@@ -7,7 +7,7 @@ const { title, subtitle, position, department, image, policies, qualifications, 
 
 <!-- Layout Template -->
 <Layout>
-  <div class="w-full bg-yellow pt-20 pb-24">
+  <div class="w-full bg-yellow pt-12 pb-24">
     <div class="w-full max-w-screen-md mx-auto px-8 sm:px-12">
         <a href="/">
             <img src= "/pics/arrow.webp" alt="arrow" class="w-2 mb-4 ml-0 cursor-pointer hover:opacity-80 transition" />
@@ -67,14 +67,12 @@ const { title, subtitle, position, department, image, policies, qualifications, 
     </h2>
     <div class="space-y-3 text-sm font-noto">
       <div>
-        <span class="font-bold text-gray">ประวัติการทำงาน</span><br />
         <ul class="list-disc text-gray pl-6">
           {experience.map((item: unknown) => <li>{item}</li>)}
         </ul>
       </div>
     </div>
 
-    <div class="border-t border-black w-full my-6"></div>
     <div class="mt-6">
       <slot />
     </div>
