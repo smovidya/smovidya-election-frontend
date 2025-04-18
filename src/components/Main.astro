@@ -12,7 +12,6 @@ import Sport from "@/pics/main/par1/05_sport.webp";
 import Academic from "@/pics/main/par1/06_academic.webp";
 import PublicService from "@/pics/main/par1/07_publicservice.webp";
 import Treasurer from "@/pics/main/par1/08_treasurer.webp";
-import Layout from "../layouts/Layout.astro";
 import Carousel from "./Carousel.astro";
 import CountdownTimer from "./CountdownTimer.astro";
 
@@ -33,14 +32,14 @@ const Policies = [
 ];
 
 const Party = [
-	{ num: "1", role: "นายกสโมสร", routing: "", pic: President },
-	{ num: "1", role: "อุปนายกคนที่ 1", routing: "", pic: VicePresident1 },
-	{ num: "1", role: "อุปนายกคนที่ 2", routing: "", pic: VicePresident2 },
-	{ num: "1", role: "ประธานฝ่าย\nนิสิตสัมพันธ์", routing: "", pic: StudentRelations },
-	{ num: "1", role: "ประธานฝ่ายกีฬา", routing: "", pic: Sport },
-	{ num: "1", role: "ประธานฝ่ายวิชาการ", routing: "", pic: Academic },
-	{ num: "1", role: "ประธานฝ่ายพัฒน์", routing: "", pic: PublicService },
-	{ num: "1", role: "เหรัญญิก", routing: "", pic: Treasurer },
+	{ num: "1", role: "นายกสโมสร", routing: "/candidates/president", pic: President },
+	{ num: "1", role: "อุปนายกคนที่ 1", routing: "/candidates/vicepresident1", pic: VicePresident1 },
+	{ num: "1", role: "อุปนายกคนที่ 2", routing: "/candidates/vicepresident2", pic: VicePresident2 },
+	{ num: "1", role: "ประธานฝ่าย\nนิสิตสัมพันธ์", routing: "/candidates/studentaffairs", pic: StudentRelations },
+	{ num: "1", role: "ประธานฝ่ายกีฬา", routing: "/candidates/sports", pic: Sport },
+	{ num: "1", role: "ประธานฝ่ายวิชาการ", routing: "/candidates/academic", pic: Academic },
+	{ num: "1", role: "ประธานฝ่ายพัฒน์", routing: "/candidates/social", pic: PublicService },
+	{ num: "1", role: "เหรัญญิก", routing: "/candidates/treasurer", pic: Treasurer },
 ];
 ---
 
