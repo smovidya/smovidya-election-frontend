@@ -2,16 +2,29 @@
 import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
-const { title, subtitle, position, department, image, policies, qualifications, experience } = frontmatter;
+const {
+  title,
+  subtitle,
+  position,
+  department,
+  image,
+  policies,
+  qualifications,
+  experience,
+} = frontmatter;
 ---
 
 <!-- Layout Template -->
 <Layout>
   <div class="w-full bg-yellow pt-12 pb-24">
     <div class="w-full max-w-screen-md mx-auto px-8 sm:px-12">
-        <a href="/">
-            <img src= "/pics/arrow.webp" alt="arrow" class="w-2 mb-4 ml-0 cursor-pointer hover:opacity-80 transition" />
-          </a>          
+      <a href="/">
+        <img
+          src="/pics/arrow.webp"
+          alt="arrow"
+          class="w-2 mb-4 ml-0 cursor-pointer hover:opacity-80 transition"
+        />
+      </a>
       <div class="flex flex-row items-center w-full gap-x-8">
         <div class="flex flex-col">
           <h1 class="font-bold font-noto text-lg leading-tight">{title}</h1>
@@ -22,17 +35,19 @@ const { title, subtitle, position, department, image, policies, qualifications, 
           </h4>
         </div>
         <div class="relative w-32 mt-0 mb-8 flex-shrink-0">
-            <!-- {resolvedImage ? ( -->
-                <Image src={image}
-                    alt="candidate"
-                    class="w-full"
-                    style="object-position: top;"
-                    width={128}
-                    height={128} />
-              <!-- ) : (
+          <!-- {resolvedImage ? ( -->
+          <Image
+            src={image}
+            alt="candidate"
+            class="w-full"
+            style="object-position: top;"
+            width={128}
+            height={128}
+          />
+          <!-- ) : (
                 <p>Image not found: {image}</p>
               )} -->
-        
+
           <div
             class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-yellow/20 rounded-tr-[2.5rem]"
           >
@@ -48,7 +63,7 @@ const { title, subtitle, position, department, image, policies, qualifications, 
     <h2 class="font-bold font-noto text-lg mb-4">นโยบายผู้สมัคร</h2>
     <div class="font-noto text-sm text-black leading-relaxed space-y-4">
       {
-        policies.map((policy: { title: unknown; details: any[]; }) => (
+        policies.map((policy: { title: unknown; details: any[] }) => (
           <div>
             <p class="text-gray font-semibold">{policy.title}</p>
             <ul class="list-disc text-gray pl-6">
@@ -62,6 +77,9 @@ const { title, subtitle, position, department, image, policies, qualifications, 
     </div>
 
     <div class="border-t border-black w-full my-6"></div>
+    <h1 class="font-bold font-noto text-lg leading-tight mb-4">
+      คุณสมบัติและประวัติการทำงาน ของผู้สมัคร
+    </h1>
     <h2 class="font-bold font-noto text-base text-gray leading-tight mb-4">
       ประวัติการทำงานของผู้สมัคร
     </h2>
