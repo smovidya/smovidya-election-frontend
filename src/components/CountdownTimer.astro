@@ -29,7 +29,7 @@
   
     function updateCountdown() {
       const currentDate = new Date();
-      let difference = targetDate.getTime() - currentDate.getTime();
+      let difference = targetDate.getTime() - currentDate.getTime() + 1;
   
       const voteNowBtn = document.getElementById("vote-now-btn");
   
