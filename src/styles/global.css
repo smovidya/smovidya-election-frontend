@@ -117,6 +117,7 @@
 
 	--color-yellow: #fbc02b;
 	--color-lgray: #4b4b48;
+	--color-gray: #868686;
 	--color-dgray: #3d3c30;
 
 	--color-blue: #b0e5f5;
@@ -124,6 +125,8 @@
 
 	--color-red: #ff292c;
 	--color-yel: #ffd829;
+
+	--color-sciserve: #a57fc4;
 }
 
 @layer base {
