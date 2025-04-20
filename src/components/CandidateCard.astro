@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+	position: string;
+	candidateName: string;
+	candidateNumber: string;
+	name: string;
+	image: ImageMetadata;
+	votesReceivedPercentage: string;
+	disapprovePercentage: string;
+	abstainPercentage: string;
+	votesReceivedCount: string;
+	disapproveCount: string;
+	abstainCount: string;
+}
+
+const {
+	position,
+	candidateName,
+	candidateNumber,
+	name,
+	image,
+	votesReceivedPercentage,
+	disapprovePercentage,
+	abstainPercentage,
+	votesReceivedCount,
+	disapproveCount,
+	abstainCount,
+} = Astro.props;
+---
+<h1 class="font-bold font-noto text-[22px]" style="color: #B8860B">{position}</h1>
+<p class="font-semibold font-noto text-[18px] text-lgray">{candidateNumber}&emsp;&emsp;&emsp;{candidateName}</p>
+<div class="flex flex-row w-full h-28 rounded-r-md items-stretch overflow-hidden text-center text-sm">
+    <!-- 🟪 Votes Received -->
+    <div class="bg-[#b292cc] flex items-center" style={`width: ${votesReceivedPercentage}`}>
+      <div class="w-20 h-full overflow-hidden mr-2 flex-shrink-0">
+        <Image src={image} alt={position} class="object-cover w-full h-full" />
+      </div>
+      <div class="flex flex-col items-center ml-auto pr-10">
+        <div class="font-noto text-[12px]">รับรอง</div>
+        <div class="text-[22px] font-bold text-gray-800">{votesReceivedPercentage}</div>
+      </div>
+    </div>
+  
+    <!-- 🟪 Disapprove -->
+    <div class="bg-[#cdbadc] flex flex-col justify-center items-center px-2" style={`width: ${disapprovePercentage}`}>
+      <div class="font-noto text-[12px]">ไม่รับรอง</div>
+      <div class="text-[22px] font-bold text-gray-800">{disapprovePercentage}</div>
+    </div>
+  
+    <!-- ⬜ Abstain -->
+    <div class="bg-gray-100 flex flex-col justify-center items-center px-2" style={`width: ${abstainPercentage}`}>
+      <div class="font-noto text-[10px]">งดออกเสียง</div>
+      <div class="text-[22px] font-bold text-gray-800">{abstainPercentage}</div>
+    </div>
+  </div>
+  <p>
+    <span class="font-noto text-[13px]" style="color: purple;">รับรอง {votesReceivedCount}</span>
+    <span class="font-noto text-[13px]" style="color: red; margin-left: 1em;">ไม่รับรอง {disapproveCount}</span>
+    <span class="font-noto text-[13px]" style="color: gray; margin-left: 1em;">งดออกเสียง {abstainCount}</span>
+  </p>
+  <div class="h-5"></div>
+  
+  
+
+<style>
+    /* You can add more specific styling here if needed */
+</style>

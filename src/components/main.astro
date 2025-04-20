@@ -1,0 +1,214 @@
+---
+import { Image } from "astro:assets";
+import CandidateCard from "@/components/CandidateCard.astro";
+import VoterCount from "@/components/VoterCount.astro";
+import president from "@/components/image/01_นายก.webp";
+import vicePresident1 from "@/components/image/02_อุป 1.webp";
+import vicePresident2 from "@/components/image/03_อุป 2.webp";
+import studentRelation from "@/components/image/04_ฝ่ายนิสิตสัมพันธ์.webp";
+import sports from "@/components/image/05_ฝ่ายกีฬา.webp";
+import academic from "@/components/image/06_ฝ่ายวิชาการ.webp";
+import publicService from "@/components/image/07_ฝ่ายพัฒน์.webp";
+import treasurer from "@/components/image/08_เหรัญญิก.webp";
+import header from "@/components/image/header.webp";
+import Layout from "@/layouts/Layout.astro";
+
+const totalVoters = "3,743";
+const votesCast = "1,000,000";
+const candidateName = "นายเบอร์มิวด้า โฮมส์";
+const votesReceivedPercentage = "60%";
+const disapprovePercentage = "20%";
+const abstainPercentage = "20%";
+const votesReceivedCount = "1,225 เสียง";
+const disapproveCount = "115 เสียง";
+const abstainCount = "220 เสียง";
+---
+
+<Layout>
+    <div class="flex flex-col w-full h-auto bg-white">
+        <div class="w-full h-30 bg-[#FBC02B] select-none flex justify-center">
+            <div class="w-100 max-w-md">
+                <div class="h-10"></div>
+                <Image src={header} alt="Election Header" class="w-full" />
+            </div>
+        </div>
+
+        <div class="px-10">
+            <div class="h-10"></div>
+            <h1 class="font-bold font-noto text-[22px]">ผลการเลือกตั้ง</h1>
+            <h1 class="font-bold font-noto text-[22px]">คณะกรรมการบริหารสโมสรนิสิต</h1>
+            <h2 class="font-noto text-[18px]">คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</h2>
+            <h4 class="font-light font-noto text-[14px] text-lgray">ประจำปีการศึกษา 2568</h4>
+        </div>
+        <div class="h-10"></div>
+        <div class="px-10">
+            <div class="w-full max-w-md bg-white rounded-md shadow-md p-5 select-none flex justify-center mx-auto">
+              <VoterCount total={totalVoters} cast={votesCast} />
+            </div>
+          </div>          
+
+        <div class="px-10 mt-8 w-full max-w-md flex flex-col gap-4">
+            <CandidateCard
+                position="ตำแหน่งนายกสโมสรนิสิต"
+                candidateNumber="1"
+                candidateName="นายจามิน จันทรสุวรรณ"
+                name={candidateName}
+                image={president}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+            <CandidateCard
+                position="อุปนายกคนที่ 1"
+                candidateNumber="1"
+                candidateName="นายกิตติพัศ สิริเจิมจิตร"
+                name={candidateName}
+                image={vicePresident1}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+            <CandidateCard
+                position="อุปนายกคนที่ 2"
+                candidateNumber="1"
+                candidateName="นางสาวเอมอร พรมเพ็ง"
+                name={candidateName}
+                image={vicePresident2}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+            <CandidateCard
+                position="ประธานฝ่ายนิสิตสัมพันธ์"
+                candidateNumber="1"
+                candidateName="นางสาวนันท์นภัส หงษ์แปด"
+                name={candidateName}
+                image={studentRelation}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+            <CandidateCard
+                position="ประธานฝ่ายกีฬา"
+                candidateNumber="1"
+                candidateName="นางสาวรณิดา สูงสุมาลย์"
+                name={candidateName}
+                image={sports}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+            <CandidateCard
+                position="ประธานฝ่ายวิชาการ"
+                candidateNumber="1"
+                candidateName="นางสาวเสาวลักษณ์ สังข์ขาว"
+                name={candidateName}
+                image={academic}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+            <CandidateCard
+                position="ประธานฝ่ายพัฒนาสังคม"
+                candidateNumber="1"
+                candidateName="นายวราววิชญ์ เชื้อสุวรรณรักษ์"
+                name={candidateName}
+                image={publicService}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+            <CandidateCard
+                position="เหรัญญิก"
+                candidateNumber="1"
+                candidateName="นายชญานนท์ กุลวิภัชวัฒนา"
+                name={candidateName}
+                image={treasurer}
+                votesReceivedPercentage={votesReceivedPercentage}
+                disapprovePercentage={disapprovePercentage}
+                abstainPercentage={abstainPercentage}
+                votesReceivedCount={votesReceivedCount}
+                disapproveCount={disapproveCount}
+                abstainCount={abstainCount}
+            />
+        </div>
+        </div>
+        </div>
+        
+    </div>
+</Layout>
+
+<style>
+    .bg-white {
+        background-color: #ffffff; /* Adjust as needed */
+    }
+</style>
+
+<script type="module">
+    const resultsContainer = document.getElementById('results-container');
+    const presidentResultsElement = document.getElementById('president-results');
+    const vicePresidentResultsElement = document.getElementById('vice-president-results');
+    // Get other position elements if you have more
+  
+    fetch('https://api-smovidya-election.bunyawatapp37204.workers.dev/api/election-results') // Replace with the actual API endpoint
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.result && data.result.votesByPosition) {
+          const votesByPosition = data.result.votesByPosition;
+  
+          function displayPositionResults(positionName, positionData, element) {
+            if (positionData) {
+              const noVotes = positionData['no-vote'] || 0;
+              const disapproveVotes = positionData.disapprove || 0;
+              const totalVotes = Object.values(positionData).reduce((sum, voteCount) => sum + voteCount, 0);
+  
+              element.innerHTML = `
+                <h3>${positionName}</h3>
+                <p>No Votes: ${noVotes}</p>
+                <p>Disapprove Votes: ${disapproveVotes}</p>
+                <p>Total Votes: ${totalVotes}</p>
+                `;
+            } else {
+              element.textContent = `${positionName}: No data available`;
+            }
+          }
+  
+          displayPositionResults('President', votesByPosition.president, presidentResultsElement);
+          displayPositionResults('Vice-President', votesByPosition['vice-president'], vicePresidentResultsElement);
+  
+          // Add similar calls for other positions
+        } else {
+          console.error('Error: Invalid API response format for election results');
+          presidentResultsElement.textContent = 'Error loading results';
+          vicePresidentResultsElement.textContent = 'Error loading results';
+          // Update other elements with error messages
+        }
+      })
+      .catch(err => {
+        console.error('Error fetching election results:', err);
+        presidentResultsElement.textContent = 'Error fetching results';
+        vicePresidentResultsElement.textContent = 'Error fetching results';
+        // Update other elements with error messages
+      });
+  </script>
