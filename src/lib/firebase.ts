@@ -3,12 +3,12 @@ import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/
 import Cookies from "js-cookie";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyBX4Y_S9VnqB_MI7uElk40_8xxX6zGojo4",
-	authDomain: "smovidya-election.firebaseapp.com",
-	projectId: "smovidya-election",
-	storageBucket: "smovidya-election.firebasestorage.app",
-	messagingSenderId: "376713306726",
-	appId: "1:376713306726:web:3480b9c8d8a6b813c7c3a7",
+	apiKey: "AIzaSyB_G0NVd4UrOWV3xXesJklV5qqKDkaIASQ",
+	authDomain: "smovidyaelection-c8938.firebaseapp.com",
+	projectId: "smovidyaelection-c8938",
+	storageBucket: "smovidyaelection-c8938.firebasestorage.app",
+	messagingSenderId: "120194991470",
+	appId: "1:120194991470:web:fbcf31463f3d7ab890ad7f",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -26,10 +26,8 @@ export const signInWithGoogle = () => {
 			// 🍪 Save token to cookie (you can name it whatever)
 			Cookies.set("token", token, { expires: 7 }); // expires in 7 days
 
-			console.log("Signed in:", user);
-
 			// 🔁 Redirect to dashboard
-			window.location.href = "/dashboard";
+			window.location.href = "/agreement";
 		})
 		.catch((error) => {
 			console.error("Error signing in:", error);
