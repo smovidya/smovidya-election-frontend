@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import login from "@/img/frame_39.webp";
-import Logo from "@/img/pr_68_1.webp";
+import login from "@/img/loginwithcu.webp";
+import Logo from "@/img/smoelec.webp";
 import Layout from "@/layouts/Layout.astro";
 import LoginButton from "../components/ui/LoginButton.tsx";
 ---
@@ -9,7 +9,7 @@ import LoginButton from "../components/ui/LoginButton.tsx";
 <Layout>
   <div class="flex flex-col items-center justify-center min-h-screen">
     <div>
-      <Image src={Logo} alt="" class="w-60" />
+      <Image src={Logo} alt="smo vidya election" class="w-60" />
     </div>
     <div class="h-5"></div>
     <LoginButton client:load imageSrc={login} />
