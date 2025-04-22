@@ -26,7 +26,7 @@ export const signInWithGoogle = () => {
 			const username = email?.split("@")[0]; // แยกส่วนก่อน @
 			const lastTwo = username?.slice(-2); // ตัดตัวอักษร 2 ตัวสุดท้าย
 			if (domain !== "student.chula.ac.th" || lastTwo !== "23") {
-				alert("กรุณาใช้บัญชี Chula Student เท่านั้น");
+				alert("กรุณาใช้ Email นิสิตในการเข้าสู่ระบบ");
 				return;
 			}
 			const token = await user.getIdToken();
