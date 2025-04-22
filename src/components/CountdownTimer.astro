@@ -23,7 +23,7 @@
   </div>
   
   <script>
-    const initialTargetDate = new Date("2025-04-23T08:00:00");
+    const initialTargetDate = new Date("2025-04-23T07:00:00");
     let phase = 1;
     let targetDate = initialTargetDate;
   
@@ -43,6 +43,11 @@
       const hoursElement = document.getElementById('hours');
       const minutesElement = document.getElementById('minutes');
       const secondsElement = document.getElementById('seconds');
+      const url = window.location.href;
+      const isDev = url.includes("localhost") || url.includes("dev")
+      difference = isDev ? 0 : difference;
+      phase = isDev ? 1 : phase;
+
   
       if (difference <= 0) {
         if (phase === 1) {
