@@ -14,19 +14,14 @@ import Image from "astro/components/Image.astro";
       class="flex flex-col font-noto w-full h-auto rounded-t-4xl bg-white items-center pt-13 px-10"
     >
       <h1 class="text-xl font-bold text-center mt-11 mb-3">
-        เลือกตั้งคณะกรรมการบริหารสโมสร
+        ลงคะแนนเลือกตั้งคณะกรรมการบริหารสโมสรนิสิต
       </h1>
       <h2 class="text-base text-gray-500 text-center mb-9">
         คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย<br />ประจำปีการศึกษา 2568
       </h2>
       <hr class="my-6 border-gray-300" />
 
-      <form
-        method="POST"
-        action="/api/submit-vote"
-        class="vote-form"
-        onsubmit="return confirm('ยืนยันการส่งคะแนนใช่หรือไม่?')"
-      >
+      <form method="POST" action="/api/submit-vote" class="vote-form">
         <!-- President -->
         <section id="president" class="mb-12">
           <h3 class="text-xl font-semibold">ตำแหน่งนายกสโมสร</h3>
@@ -38,12 +33,12 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นายจามิน จันทรสุวรรณ</p>
               <br />
               <p class="text-gray-600 text-xs">
@@ -104,17 +99,15 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นายกิตติพัศ สิริเจิมจิตร</p>
               <br />
-              <p class="text-gray-600 text-xs">
-                ภาควิชาจุลชีววิทยา
-              </p>
+              <p class="text-gray-600 text-xs">ภาควิชาจุลชีววิทยา</p>
               <p class="text-gray-600 text-xs">ชั้นปีที่ 3</p>
             </div>
             <Image
@@ -170,12 +163,12 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นางสาวเอมอร พรมเพ็ง</p>
               <br />
               <p class="text-gray-600 text-xs">
@@ -236,16 +229,16 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นางสาวนันท์นภัส หงษ์แปด</p>
               <br />
               <p class="text-gray-600 text-xs">
-                หลักสูตรเทคโนโลยีชีวภาพ(นานาชาติ)
+                หลักสูตรเทคโนโลยีชีวภาพ (นานาชาติ)
               </p>
               <p class="text-gray-600 text-xs">ชั้นปีที่ 2</p>
             </div>
@@ -302,17 +295,15 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นางสาวเสาวลักษณ์ สังข์ขาว</p>
               <br />
-              <p class="text-gray-600 text-xs">
-                ภาควิชาวัสดุศาสตร์
-              </p>
+              <p class="text-gray-600 text-xs">ภาควิชาวัสดุศาสตร์</p>
               <p class="text-gray-600 text-xs">ชั้นปีที่ 3</p>
             </div>
             <Image
@@ -368,17 +359,15 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นางสาวรณิดา สูงสุมาลย์</p>
               <br />
-              <p class="text-gray-600 text-xs">
-                ภาควิชาเคมี
-              </p>
+              <p class="text-gray-600 text-xs">ภาควิชาเคมี</p>
               <p class="text-gray-600 text-xs">ชั้นปีที่ 2</p>
             </div>
             <Image
@@ -425,7 +414,9 @@ import Image from "astro/components/Image.astro";
 
         <!-- Head of Development -->
         <section id="development" class="mb-12">
-          <h3 class="text-xl font-semibold">ตำแหน่งประธานฝ่ายพัฒนาสังคมและบำเพ็ญประโยชน์</h3>
+          <h3 class="text-xl font-semibold">
+            ตำแหน่งประธานฝ่ายพัฒนาสังคมและบำเพ็ญประโยชน์
+          </h3>
           <p class="text-gray-600 mb-6">
             กรุณาเลือก รับรอง ไม่รับรอง หรืองดออกเสียง
           </p>
@@ -434,17 +425,15 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นายวราวิชญ์ เชื้อสุวรรณรักษ์</p>
               <br />
-              <p class="text-gray-600 text-xs">
-                ภาควิชาวิทยาศาสตร์สิ่งแวดล้อม
-              </p>
+              <p class="text-gray-600 text-xs">ภาควิชาวิทยาศาสตร์สิ่งแวดล้อม</p>
               <p class="text-gray-600 text-xs">ชั้นปีที่ 3</p>
             </div>
             <Image
@@ -500,17 +489,15 @@ import Image from "astro/components/Image.astro";
             <div
               class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg"
             >
-              <span class="text-base font-bold text-purple-900">เบอร์</span>
+              <span class="text-sm font-bold text-purple-900">หมายเลข</span>
               <span class="text-2xl font-bold text-purple-900">1</span>
             </div>
 
             <div class="p-3 w-3/5 bg-white shadow-lg">
-              <p class="font-bold text-sm">พรรค Sci Served</p>
+              <p class="font-bold text-sm">พรรค Sci-Served</p>
               <p class="font-bold text-sm">นายชญานนท์ กุลวิภัชวัฒนา</p>
               <br />
-              <p class="text-gray-600 text-xs">
-                ภาควิชาเคมีเทคนิค
-              </p>
+              <p class="text-gray-600 text-xs">ภาควิชาเคมีเทคนิค</p>
               <p class="text-gray-600 text-xs">ชั้นปีที่ 2</p>
             </div>
             <Image
@@ -566,61 +553,42 @@ import Image from "astro/components/Image.astro";
         </div>
       </form>
     </div>
-  </main>
-  <div
-    id="summaryModal"
-    class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center p-4"
-  >
-    <div
-      class="bg-white p-8 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto"
-    >
-      <h2 class="text-xl font-bold mb-4">ตรวจสอบข้อมูลก่อนส่ง</h2>
-
-      <!-- Summary Content -->
-      <div id="summaryContent" class="space-y-4 mb-6"></div>
-
-      <div class="flex gap-4 justify-end">
-        <button
-          onclick="document.getElementById('summaryModal').classList.add('hidden')"
-          class="px-4 py-2 border border-gray-300 rounded"
-        >
-          กลับไปแก้ไข
-        </button>
-        <button
-          id="confirmSubmit"
-          class="bg-yellow text-black px-4 py-2 rounded"
-        >
-          ยืนยันการส่ง
-        </button>
-      </div>
-    </div>
   </div>
 </Layout>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const voteForm = document.querySelector(".vote-form");
-    
+
     if (voteForm) {
       voteForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        
+
         // ตรวจสอบข้อมูลและเก็บลง sessionStorage
         const formData = new FormData(voteForm);
         const voteData = {};
         const positions = [
-          'president', 'vice1', 'vice2', 
-          'relation', 'sport', 'acadamic',
-          'development', 'treasurer'
+          "president",
+          "vice1",
+          "vice2",
+          "relation",
+          "sport",
+          "acadamic",
+          "development",
+          "treasurer",
         ];
 
         // ตรวจสอบว่าทุกตำแหน่งถูกเลือก
         let isValid = true;
-        positions.forEach(position => {
+        positions.forEach((position) => {
           if (!formData.get(position)) {
             isValid = false;
-            const errorElement = document.querySelector(`[name="${position}"]:not(:checked)`);
-            errorElement?.closest('section')?.classList.add('border-2', 'border-red-500');
+            const errorElement = document.querySelector(
+              `[name="${position}"]:not(:checked)`
+            );
+            errorElement
+              ?.closest("section")
+              ?.classList.add("border-2", "border-red-500");
           }
         });
 
@@ -630,13 +598,13 @@ import Image from "astro/components/Image.astro";
         }
 
         // เก็บข้อมูลลง sessionStorage
-        positions.forEach(position => {
+        positions.forEach((position) => {
           voteData[position] = formData.get(position);
         });
-        sessionStorage.setItem('voteData', JSON.stringify(voteData));
+        sessionStorage.setItem("voteData", JSON.stringify(voteData));
 
         // เปลี่ยนเส้นทางไปหน้าสรุปผล
-        window.location.href = '/vote-summary';
+        window.location.href = "/vote-summary";
       });
     }
   });

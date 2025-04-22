@@ -26,7 +26,7 @@ export const signInWithGoogle = () => {
 			const username = email?.split("@")[0]; // แยกส่วนก่อน @
 			const lastTwo = username?.slice(-2); // ตัดตัวอักษร 2 ตัวสุดท้าย
 			if (domain !== "student.chula.ac.th" || lastTwo !== "23") {
-				alert("Please use your student email to sign in.");
+				alert("กรุณาใช้บัญชี Chula Student เท่านั้น");
 				return;
 			}
 			const token = await user.getIdToken();
@@ -34,8 +34,24 @@ export const signInWithGoogle = () => {
 			// 🍪 Save token to cookie (you can name it whatever)
 			Cookies.set("token", token, { expires: 7 }); // expires in 7 days
 
-			// 🔁 Redirect to dashboard
-			window.location.href = "/agreement";
+			try {
+				const response = await fetch("https://api-smovidya-election.bunyawatapp37204.workers.dev/api/eligibility", {
+					method: "GET",
+					headers: {
+						// biome-ignore lint/style/useNamingConvention: <explanation>
+						Authorization: `Bearer ${token}`,
+					},
+				});
+				const data = await response.json();
+
+				if (data.eligible === false || data.reason === "voted-already") {
+					window.location.href = "/finish";
+				} else {
+					window.location.href = "/agreement";
+				}
+			} catch (error) {
+				console.error(error);
+			}
 		})
 		.catch((error) => {
 			console.error("Error signing in:", error);

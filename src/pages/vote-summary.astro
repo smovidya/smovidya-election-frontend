@@ -26,7 +26,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
       <div class="mt-12 text-center">
         <button
           class="bg-gray-200 text-black px-8 py-3 rounded-lg ml-4 transition-colors"
-          onclick="window.location.href='/vote'"
+          onclick="window.location.href='/election'"
         >
           แก้ไขคะแนน
         </button>
@@ -58,7 +58,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
         position: "ตำแหน่งนายกสโมสร",
         studentId: "6534304723",
         number: 1,
-        party: "Sci Served",
+        party: "Sci-Served",
         name: "นายจามิน จันทรสุวรรณ",
         department: "ภาควิชาคณิตศาสตร์และคอมพิวเตอร์",
         year: "ชั้นปีที่ 3",
@@ -68,7 +68,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
         position: "ตำแหน่งอุปนายกคนที่ 1",
         number: 1,
         studentId: "6531306423",
-        party: "Sci Served",
+        party: "Sci-Served",
         name: "นายกิตติพัศ สิริเจิมจิตร",
         department: "ภาควิชาจุลชีววิทยา",
         year: "ชั้นปีที่ 3",
@@ -78,7 +78,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
         position: "ตำแหน่งอุปนายกคนที่ 2",
         number: 1,
         studentId: "6534357023",
-        party: "Sci Served",
+        party: "Sci-Served",
         name: "นางสาวเอมอร พรมเพ็ง",
         department: "ภาควิชาคณิตศาสตร์และคอมพิวเตอร์",
         year: "ชั้นปีที่ 3",
@@ -87,17 +87,17 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
       relation: {
         position: "ตำแหน่งประธานฝ่ายนิสิตสัมพันธ์",
         number: 1,
-        party: "Sci Served",
+        party: "Sci-Served",
         studentId: "6638029023",
         name: "นางสาวนันท์นภัส หงษ์แปด",
-        department: "หลักสูตรเทคโนโลยีชีวภาพ(นานาชาติ)",
+        department: "หลักสูตรเทคโนโลยีชีวภาพ (นานาชาติ)",
         year: "ชั้นปีที่ 2",
         image: "/images/04_ฝ่ายนิสิตสัมพันธ์.webp",
       },
       sport: {
         position: "ตำแหน่งประธานฝ่ายกีฬา",
         number: 1,
-        party: "Sci Served",
+        party: "Sci-Served",
         studentId: "6634095623",
         name: "นางสาวเสาวลักษณ์ สังข์ขาว",
         department: "ภาควิชาวัสดุศาสตร์",
@@ -107,7 +107,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
       acadamic: {
         position: "ตำแหน่งประธานฝ่ายวิชาการ",
         number: 1,
-        party: "Sci Served",
+        party: "Sci-Served",
         studentId: "6532334123",
         name: "นางสาวรณิดา สูงสุมาลย์",
         department: "ภาควิชาเคมี",
@@ -117,7 +117,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
       development: {
         position: "ตำแหน่งประธานฝ่ายพัฒนาสังคมและบำเพ็ญประโยชน์",
         number: 1,
-        party: "Sci Served",
+        party: "Sci-Served",
         studentId: "6533279523",
         name: "นายวราวิชญ์ เชื้อสุวรรณรักษ์",
         department: "ภาควิชาวิทยาศาสตร์สิ่งแวดล้อม",
@@ -127,7 +127,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
       treasurer: {
         position: "ตำแหน่งเหรัญญิก",
         number: 1,
-        party: "Sci Served",
+        party: "Sci-Served",
         studentId: "6632417723",
         name: "นายชญานนท์ กุลวิภัชวัฒนา",
         department: "ภาควิชาเคมีเทคนิค",
@@ -168,7 +168,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
       <h3 class="text-xl font-semibold mb-4">${candidate.position}</h3>
       <div class="flex h-32 gap-1">
         <div class="flex flex-col w-1/5 items-center justify-center bg-purple-100 shadow-lg">
-          <span class="text-base font-bold text-purple-900">เบอร์</span>
+                       <span class="text-sm font-bold text-purple-900">หมายเลข</span>
           <span class="text-2xl font-bold text-purple-900">${candidate.number}</span>
         </div>
         <div class="p-3 w-3/5 bg-white shadow-lg">
