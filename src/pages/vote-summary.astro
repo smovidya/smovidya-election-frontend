@@ -242,32 +242,37 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
         ];
 
         // สร้าง votes โดยไม่พึ่งพา candidates
+        // สร้าง votes ตามเงื่อนไขใหม่
         const votes = allPositions.map((pos) => {
-          // กรณีตำแหน่งที่ไม่มีในฟอร์ม
+          // ตำแหน่งที่ไม่มีในฟอร์ม
           if (!pos.voteKey) {
-            return {
-              candidateId: "no-vote",
-              position: pos.apiField,
-            };
+            return { candidateId: "no-vote", position: pos.apiField };
           }
 
-          // ดึงข้อมูลการโหวตจาก sessionStorage
           const voteValue = voteData[pos.voteKey];
+          const candidate = candidates[pos.voteKey];
 
           // ตรวจสอบประเภทการโหวต
-          if (voteValue === "abstain") {
-            return {
-              candidateId: "no-vote",
-              position: pos.apiField,
-            };
-          }
+          switch (voteValue) {
+            case "approve":
+              return {
+                candidateId: Number(candidate.studentId),
+                position: pos.apiField,
+              };
 
-          // ค้นหา studentId จาก candidates โดยตรง
-          const candidate = candidates[pos.voteKey];
-          return {
-            candidateId: candidate ? Number(candidate.studentId) : "no-vote",
-            position: pos.apiField,
-          };
+            case "disapprove":
+              return {
+                candidateId: "disapprove",
+                position: pos.apiField,
+              };
+
+            case "abstain":
+            default:
+              return {
+                candidateId: "no-vote",
+                position: pos.apiField,
+              };
+          }
         });
 
         const cookieValue = document.cookie
