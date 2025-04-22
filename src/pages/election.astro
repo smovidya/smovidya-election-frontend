@@ -606,85 +606,47 @@ import Image from "astro/components/Image.astro";
   </div>
 </Layout>
 
-<script>
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const voteForm = document.querySelector(".vote-form") as HTMLFormElement;
-    const summaryModal = document.getElementById("summaryModal");
-    const summaryContent = document.getElementById("summaryContent");
-    const confirmBtn = document.getElementById("confirmSubmit");
-
+    const voteForm = document.querySelector(".vote-form");
+    
     if (voteForm) {
       voteForm.addEventListener("submit", (e) => {
         e.preventDefault();
-
+        
+        // ตรวจสอบข้อมูลและเก็บลง sessionStorage
         const formData = new FormData(voteForm);
+        const voteData = {};
+        const positions = [
+          'president', 'vice1', 'vice2', 
+          'relation', 'sport', 'acadamic',
+          'development', 'treasurer'
+        ];
+
+        // ตรวจสอบว่าทุกตำแหน่งถูกเลือก
         let isValid = true;
-        const positions = {
-          president: "นายกสโมสร",
-          vice_president_1: "อุปนายกคนที่ 1",
-          vice_president_2: "อุปนายกคนที่ 2",
-          student_relations: "ประธานฝ่ายนิสิตสัมพันธ์",
-          sports: "ประธานฝ่ายกีฬา",
-          academic: "ประธานฝ่ายวิชาการ",
-          development: "ประธานฝ่ายพัฒน์",
-          treasurer: "เหรัญญิก",
-        };
-
-        // Clear previous summary
-        if (summaryContent) {
-          summaryContent.innerHTML = "";
-        }
-
-        // Build summary
-        for (const [name, thaiName] of Object.entries(positions)) {
-          const value = formData.get(name);
-          if (!value) {
+        positions.forEach(position => {
+          if (!formData.get(position)) {
             isValid = false;
-            const element = document.querySelector(
-              `[name="${name}"]:not(:checked)`
-            );
-            if (element) {
-              const parent = element.closest(".space-y-3");
-              if (parent) {
-                parent.classList.add("border-red-500");
-              }
-            }
-            continue;
+            const errorElement = document.querySelector(`[name="${position}"]:not(:checked)`);
+            errorElement?.closest('section')?.classList.add('border-2', 'border-red-500');
           }
-
-          const displayText = {
-            approve: "✅ รับรอง",
-            disapprove: "❌ ไม่รับรอง",
-            abstain: "➖ งดออกเสียง",
-          }[value as string];
-
-          if (summaryContent) {
-            summaryContent.innerHTML += `
-              <div class="flex justify-between items-center border-b pb-2">
-                <span class="font-medium">${thaiName}</span>
-                <span class="text-gray-600">${displayText}</span>
-              </div>
-            `;
-          }
-        }
+        });
 
         if (!isValid) {
           alert("กรุณาทำการเลือกในทุกตำแหน่งก่อนส่งคะแนน");
           return;
         }
 
-        // Show summary modal
-        if (summaryModal) {
-          summaryModal.classList.remove("hidden");
-        }
-      });
-
-      // Handle final submission
-      if (confirmBtn) {
-        confirmBtn.addEventListener("click", () => {
-          voteForm.submit();
+        // เก็บข้อมูลลง sessionStorage
+        positions.forEach(position => {
+          voteData[position] = formData.get(position);
         });
-      }
+        sessionStorage.setItem('voteData', JSON.stringify(voteData));
+
+        // เปลี่ยนเส้นทางไปหน้าสรุปผล
+        window.location.href = '/vote-summary';
+      });
     }
   });
 </script>

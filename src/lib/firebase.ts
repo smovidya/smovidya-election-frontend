@@ -21,6 +21,14 @@ export const signInWithGoogle = () => {
 	return signInWithPopup(auth, provider)
 		.then(async (result) => {
 			const user = result.user;
+			const email = user.email;
+			const domain = email?.split("@")[1];
+			const username = email?.split("@")[0]; // แยกส่วนก่อน @
+			const lastTwo = username?.slice(-2); // ตัดตัวอักษร 2 ตัวสุดท้าย
+			if (domain !== "student.chula.ac.th" || lastTwo !== "23") {
+				alert("Please use your student email to sign in.");
+				return;
+			}
 			const token = await user.getIdToken();
 
 			// 🍪 Save token to cookie (you can name it whatever)
