@@ -33,6 +33,10 @@ export const signInWithGoogle = () => {
 
 			// 🍪 Save token to cookie (you can name it whatever)
 			Cookies.set("token", token, { expires: 7 }); // expires in 7 days
+			const sessionExpiry = Date.now() + 30 * 60 * 1000; // 30 นาทีในมิลลิวินาที
+			Cookies.set("sessionExpiry", sessionExpiry.toString(), {
+				expires: new Date(sessionExpiry), // ตั้งอายุคุกกี้ให้ตรงกับ timestamp
+			});
 
 			try {
 				const response = await fetch("https://api-smovidya-election.bunyawatapp37204.workers.dev/api/eligibility", {
