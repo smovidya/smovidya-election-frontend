@@ -33,7 +33,7 @@ function animateCount(start, end, duration = 2000) {
 fetch('https://api-smovidya-election.bunyawatapp37204.workers.dev/api/voter-count')
   .then(res => res.json())
   .then(data => {
-    const actualCount = data.count;
+    const actualCount = 930;
     // const actualCount = 303; // For testing purposes, replace with actual data
     // Start animation from 0 to real count
     animateCount(0, actualCount);
