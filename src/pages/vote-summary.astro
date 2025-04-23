@@ -328,8 +328,7 @@ import Logo from "@/pics/main/SmoElectionLogo.webp";
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Authorization:
-                "Basic " + btoa(`${studentId}:${mockCurrentTime}`),
+              Authorization: "Bearer " + cookieValue
             },
             body: JSON.stringify({ votes }),
           }
