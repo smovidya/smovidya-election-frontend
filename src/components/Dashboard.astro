@@ -1,0 +1,161 @@
+---
+import { Image } from "astro:assets";
+import CandidateCard from "@/components/CandidateCard.astro";
+import VoterCount from "@/components/VoterCount.astro";
+import Logo from "@/pics/main/SmoElectionLogo.webp";
+import President from "@/pics/main/par1/01_president.webp";
+import VicePresident1 from "@/pics/main/par1/02_vicepresident1.webp";
+import VicePresident2 from "@/pics/main/par1/03_vicepresident2.webp";
+import StudentRelations from "@/pics/main/par1/04_studentrelations.webp";
+import Sport from "@/pics/main/par1/05_sport.webp";
+import Academic from "@/pics/main/par1/06_academic.webp";
+import PublicService from "@/pics/main/par1/07_publicservice.webp";
+import Treasurer from "@/pics/main/par1/08_treasurer.webp";
+
+// Candidate data array
+const calculatePercent = (approve: number, abstain: number, disapprove: number) => {
+	const total = approve + abstain + disapprove;
+	return {
+		approve: `${((approve / total) * 100).toFixed(1)}%`,
+		abstain: `${((abstain / total) * 100).toFixed(1)}%`,
+		disapprove: `${((disapprove / total) * 100).toFixed(1)}%`,
+	};
+};
+
+// ข้อมูลจริงจากที่ให้มา
+const rawData = {
+	academic: { approve: 731, abstain: 156, disapprove: 43 },
+	president: { approve: 684, abstain: 155, disapprove: 91 },
+	"public-service": { approve: 723, abstain: 164, disapprove: 43 },
+	sport: { approve: 705, abstain: 183, disapprove: 42 },
+	"student-relations": { approve: 715, abstain: 177, disapprove: 38 },
+	treasurer: { approve: 691, abstain: 190, disapprove: 49 },
+	"vice-president-1": { approve: 703, abstain: 169, disapprove: 58 },
+	"vice-president-2": { approve: 722, abstain: 142, disapprove: 66 },
+};
+
+// Candidate data array ที่อัปเดตแล้ว
+const candidates = [
+	{
+		position: "ตำแหน่งนายกสโมสรนิสิต",
+		candidateNumber: "1",
+		candidateName: "นายจามิน จันทรสุวรรณ",
+		image: President,
+		...calculatePercent(684, 155, 91),
+		votesReceivedCount: "684 เสียง",
+		disapproveCount: "91 เสียง",
+		abstainCount: "155 เสียง",
+	},
+	{
+		position: "อุปนายกคนที่ 1",
+		candidateNumber: "1",
+		candidateName: "นายกิตติพัศ สิริเจิมจิตร",
+		image: VicePresident1,
+		...calculatePercent(703, 169, 58),
+		votesReceivedCount: "703 เสียง",
+		disapproveCount: "58 เสียง",
+		abstainCount: "169 เสียง",
+	},
+	{
+		position: "อุปนายกคนที่ 2",
+		candidateNumber: "1",
+		candidateName: "นางสาวเอมอร พรมเพ็ง",
+		image: VicePresident2,
+		...calculatePercent(722, 142, 66),
+		votesReceivedCount: "722 เสียง",
+		disapproveCount: "66 เสียง",
+		abstainCount: "142 เสียง",
+	},
+	{
+		position: "ประธานฝ่ายนิสิตสัมพันธ์",
+		candidateNumber: "1",
+		candidateName: "นางสาวนันท์นภัส หงษ์แปด",
+		image: StudentRelations,
+		...calculatePercent(715, 177, 38),
+		votesReceivedCount: "715 เสียง",
+		disapproveCount: "38 เสียง",
+		abstainCount: "177 เสียง",
+	},
+	{
+		position: "ประธานฝ่ายกีฬา",
+		candidateName: "นางสาวเสาวลักษณ์ สังข์ขาว",
+		candidateNumber: "1",
+		image: Sport,
+		...calculatePercent(705, 183, 42),
+		votesReceivedCount: "705 เสียง",
+		disapproveCount: "42 เสียง",
+		abstainCount: "183 เสียง",
+	},
+	{
+		position: "ประธานฝ่ายวิชาการ",
+		candidateNumber: "1",
+		candidateName: "นางสาวรณิดา สูงสุมาลย์",
+		image: Academic,
+		...calculatePercent(731, 156, 43),
+		votesReceivedCount: "731 เสียง",
+		disapproveCount: "43 เสียง",
+		abstainCount: "156 เสียง",
+	},
+	{
+		position: "ประธานฝ่ายพัฒนาสังคม",
+		candidateNumber: "1",
+		candidateName: "นายวราววิชญ์ เชื้อสุวรรณรักษ์",
+		image: PublicService,
+		...calculatePercent(723, 164, 43),
+		votesReceivedCount: "723 เสียง",
+		disapproveCount: "43 เสียง",
+		abstainCount: "164 เสียง",
+	},
+	{
+		position: "เหรัญญิก",
+		candidateNumber: "1",
+		candidateName: "นายชญานนท์ กุลวิภัชวัฒนา",
+		image: Treasurer,
+		...calculatePercent(691, 190, 49),
+		votesReceivedCount: "691 เสียง",
+		disapproveCount: "49 เสียง",
+		abstainCount: "190 เสียง",
+	},
+];
+---
+
+    <div class="flex flex-col w-full h-auto bg-yellow select-none">
+        <div class="pt-10 mb-10 px-10">
+          <Image src={Logo} alt={"logo"} class="w-50 mb-8" />
+        </div>
+        <div class="flex flex-col font-noto w-full h-auto rounded-t-4xl bg-white items-center pt-8">
+        <div class="px-10">
+            <div class="h-10"></div>
+            <h1 class="font-bold font-noto text-[22px]">ผลการเลือกตั้ง</h1>
+            <h1 class="font-bold font-noto text-[22px]">คณะกรรมการบริหารสโมสรนิสิต</h1>
+            <h2 class="font-noto text-[18px]">คณะวิทยาศาสตร์<br/>จุฬาลงกรณ์มหาวิทยาลัย</h2>
+            <h4 class="font-light font-noto text-[14px] text-lgray">ประจำปีการศึกษา 2568</h4>
+        </div>
+        
+        <div class="shadow-lg bg-white min-w-full h-35 rounded-2xl flex flex-col items-center justify-center">
+            <VoterCount />
+        </div>
+
+        <div class="px-10 mt-8 w-full max-w-md flex flex-col gap-4">
+            {candidates.map(candidate => (
+                <CandidateCard
+                    position={candidate.position}
+                    name={candidate.candidateName}
+                    candidateNumber={candidate.candidateNumber}
+                    candidateName={candidate.candidateName}
+                    image={candidate.image}
+                    votesReceivedPercentage={candidate.approve}
+                    disapprovePercentage={candidate.disapprove}
+                    abstainPercentage={candidate.abstain}
+                    votesReceivedCount={candidate.votesReceivedCount}
+                    disapproveCount={candidate.disapproveCount}
+                    abstainCount={candidate.abstainCount}
+                />
+            ))}
+        </div>
+        </div>
+    </div>
+
+<style>
+    .bg-white { background-color: #ffffff; }
+</style>
