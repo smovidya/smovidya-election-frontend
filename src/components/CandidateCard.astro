@@ -30,62 +30,70 @@ const {
 } = Astro.props;
 ---
 <div class="max-w-2xl mx-auto">
-    <h1 class="font-bold font-noto text-2xl text-amber-600 mb-2">{position}</h1>
-    <p class="font-semibold font-noto text-gray-600 mb-4">
-      <span class="mr-8">{candidateNumber}</span>
-      <span>{candidateName}</span>
-    </p>
-  
-    <!-- Progress bars container -->
-    <div class="flex h-28 rounded-lg overflow-hidden shadow-md mb-3">
-      <!-- Votes Received -->
-      <div 
-        class="flex  items-center bg-purple-200 transition-all duration-500" 
-        style={`width: ${votesReceivedPercentage}`}
-      >
-        <div class="min-w-[5rem] h-full">
-          <Image 
-            src={image} 
-            alt={name}
-            class="object-cover w-full h-full"
-          />
-        </div>
-        <div class="px-4 text-center justify-center flex flex-col">
-          <p class="text-end text-sm flex flex-col font-bold text-purple-900">รับรอง<br/>{votesReceivedPercentage}</p>
-        </div>
+  <h1 class="font-bold font-noto text-2xl text-amber-600 mb-2">{position}</h1>
+  <p class="font-semibold font-noto text-gray-600 mb-4">
+    <span class="mr-8">{candidateNumber}</span>
+    <span>{candidateName}</span>
+  </p>
+
+  <!-- Progress bars container -->
+  <div class="flex h-28 rounded-lg overflow-hidden shadow-md mb-3">
+    <!-- Votes Received -->
+    <div 
+      class="flex items-center bg-purple-200 transition-all duration-500" 
+      style={`width: 60%`}
+    >
+      <div class="min-w-[5rem] h-full">
+        <Image 
+          src={image} 
+          alt={name}
+          class="object-cover w-full h-full"
+        />
       </div>
-  
-      <!-- Abstain -->
-      <div 
-        class="flex flex-col items-center justify-center bg-purple-100 px-4" 
-        style={`width: ${abstainPercentage}`}
-      >
-        <p class="text-base font-bold text-purple-900">{abstainPercentage}</p>
-      </div>
-  
-      <!-- Disapprove -->
-      <div 
-        class="flex flex-col items-center justify-center bg-gray-50 px-4" 
-        style={`width: ${disapprovePercentage}`}
-      >
-        <p class="text-sm font-bold text-gray-700">{disapprovePercentage}</p>
+      <div class="px-4 text-center justify-center flex flex-col">
+        <p class="font-bold text-purple-900">
+          <span class="text-xs block">รับรอง</span>
+          <span class="text-sm block">{votesReceivedPercentage}</span>
+        </p>
       </div>
     </div>
-  
-    <!-- Summary Stats -->
-    <div class="flex flex-wrap gap-4 text-[10px] font-noto">
-      <div class="flex items-center">
-        <span class="block w-3 h-3 bg-purple-200 mr-2"></span>
-        รับรอง {votesReceivedCount}
-      </div>
-      <div class="flex items-center">
-        <span class="block w-3 h-3 bg-purple-100 mr-2"></span>
-        งดออกเสียง {abstainCount}
-      </div>
-      <div class="flex items-center">
-        <span class="block w-3 h-3 bg-gray-50 mr-2"></span>
-        ไม่รับรอง {disapproveCount}
-      </div>
 
+    <!-- Abstain -->
+    <div 
+      class="flex flex-col items-center justify-center bg-purple-100 px-4" 
+      style={`width: 30%`}
+    >
+      <p class="font-bold text-purple-900 text-center">
+        <span class="text-xs block">งดออกเสียง</span>
+        <span class="text-sm block">{abstainPercentage}</span>
+      </p>
+    </div>
+
+    <!-- Disapprove -->
+    <div 
+      class="flex flex-col items-center justify-center bg-gray-50 px-4" 
+      style={`width: 20%`}
+    >
+      <p class="font-bold text-gray-700 text-center">
+        <span class="text-xs block">ไม่รับรอง</span>
+        <span class="text-sm block">{disapprovePercentage}</span>
+      </p>
     </div>
   </div>
+
+  <!-- Summary Stats -->
+  <div class="flex flex-wrap gap-4 text-[8px] font-noto">
+    <div class="flex items-center">
+      <span class="block w-3 h-3 bg-purple-200 mr-2"></span>
+      รับรอง {votesReceivedCount}
+    </div>
+    <div class="flex items-center">
+      <span class="block w-3 h-3 bg-purple-100 mr-2"></span>
+      งดออกเสียง {abstainCount}
+    </div>
+    <div class="flex items-center">
+      <span class="block w-3 h-3 bg-gray-50 mr-2"></span>
+      ไม่รับรอง {disapproveCount}
+    </div>
+  </div>
+</div>
